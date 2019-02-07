@@ -1,0 +1,13 @@
+language: php
+php:
+- '7.2.1'
+
+sudo: false
+
+services: postgresql
+
+before_install:
+- composer self-update
+
+install:
+- composer install

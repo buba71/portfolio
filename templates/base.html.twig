@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    <div id="app">
+        <h1>My first symfony app with Vue.js</h1>
+        ${ message }
+    </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    <script src="{{ asset('build/js/vue.js') }}"></script>
+    </body>
+</html>
