@@ -10,6 +10,7 @@ Encore
     .enableVersioning(Encore.isProduction())
     .addEntry('js/vue', './assets/js/vue.js')
     .addEntry('js/app', './assets/js/app.js')
+    .addEntry('css/main', './assets/css/main.css')
 
     // Enable Vue loader.
     .enableVueLoader()

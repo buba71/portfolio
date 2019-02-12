@@ -10,6 +10,7 @@
     "vue-template-compiler": "^2.5.17"
   },
   "dependencies": {
-    "mdbootstrap": "^4.7.1"
+    "mdbootstrap": "^4.7.1",
+    "vue-scrollto": "^2.13.0"
   }
 }

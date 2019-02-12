@@ -1,0 +1,18 @@
+/* Fonts */
+#logo {
+    font-family: "Special Elite";
+}
+
+nav {
+    background-color: #2BA5D9;
+}
+.jumbotron {
+    background-color: #39B59F;
+    height: 900px;
+}
+
+section {
+    height: 800px;
+    text-align: center;
+}
+

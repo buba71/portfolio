@@ -5,31 +5,40 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
         <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/css/main.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <div id="app">
         <!-- Main navigation -->
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-                <a class="navbar-brand" href="#">Navbar</a>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+                <a class="navbar-brand" href="" id="logo">www.david-de-lima.tech</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" v-scroll-to="'#logo'">Accueil</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" v-scroll-to="'#services'" >Mes services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#" v-scroll-to="'#about'">Qui suis-je</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#" v-scroll-to="'#skills'">Compétences</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="#" v-scroll-to="'#developments'">Mes réalisations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" v-scroll-to="'#contact'">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -44,11 +53,14 @@
         </main>
         <!-- Main layout -->
 
+
         <!-- Footer -->
         <footer>
 
         </footer>
         <!-- Footer -->
+    </div>
+
         {% block javascripts %}{% endblock %}
     <script src="{{ asset('build/js/vue.js') }}"></script>
     <script src="{{ asset('build/js/app.js') }}"></script>
