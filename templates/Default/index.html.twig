@@ -2,46 +2,454 @@
 
 {% block content %}
 
-        <p class="jumbotron">Un paragraphe</p>
+<!-- Home content -->
+<div class="container-fluid">
+    <scroll-button v-if="service"></scroll-button>
+    <section class="row " id="home">
+        <div class="col-md-7" id="introduction">
 
-    <!-- Services section. -->
-    <section id="services">
-        <h3>services</h3>
+
+            <!-- Description -->
+            <p id="introduction-paragraphe">
+                Vous êtes à la recherche d'un professionnel pour créer un site internet?
+            Vous recherchez un développeur web, freelance, pour vous épauler techniquement?
+            Ou bien vous voulez tout simplement profiter des opportunités du web pour développer votre activité?
+            Spécialisé dans le développement PHP/Symfony, je mets à votre disposition mes compétences pour  vous
+            accompagner dans la création d'une solution web sur mesure et adaptée à votre coeur de métier.<br/>
+            </p>
+
+            <!-- Title -->
+            <h1 class="text-center">Developpeur Web Freelance</h1>
+            <!-- Title -->
+            <div class="social-links d-flex justify-content-center">
+                <a href="#">
+                    <img id="github-icon" class="" src="{{ asset('images/github.png') }}">
+                </a>
+                <a href="#">
+                    <img id="linkedin-icon"  class="" src="{{ asset('images/linkedin.png') }}">
+                </a>
+                <a href="#">
+                    <img id="codewars-icon" class="" src="{{ asset('images/codewars.png') }}">
+                </a>
+            </div>
+
+            <div id="contact_link">
+               <a class="btn" id="contact_btn" href="#" v-scroll-to="'#contact'" style="font-family: 'Roboto Mono Medium';">Contactez-moi</a>
+            </div>
+            <!-- Description -->
+        </div>
+
+        <div class="col-md-5 d-flex justify-content-center align-items-end">
+            <div id="illustration" class="d-flex justify-content-center align-items-center">
+                <img id="computer" class="" src="{{ asset('images/web-app.png') }}">
+            </div>
+        </div>
+
 
     </section>
-    <!-- Services section. -->
+</div>
+<!-- Home content -->
 
-    <!-- About section. -->
-    <section id="about">
-        <h3>Qui sui-je</h3>
+<!-- Services section. -->
+<section v-view="viewServiceHandler" id="services" class="section-content">
+    <div class="container">
+        <div class="section-title">
+            <h1>MES SERVICES</h1>
+        </div>
 
-    </section>
-    <!-- About section. -->
+        <!-- First services row -->
+        <div class="row services-box">
+            <transition name="fade1"  >
+            <div v-if="service" class="box col-md-6" id="services-top-left">
+                <div class="icon-box" >
+                    <i class="icon icon-web-programming "></i>
+                </div>
+                <div class="box-content">
+                    <h5>Développement</h5>
+                    <p>Je réalise vos projets web grâce à des solutions efficaces et modernes tout en respectant vos besoins:
+                    <ul>
+                        <li> Site vitrine.</li>
+                        <li> Application Web Monopage(SPA).</li>
+                        <li> E-boutique.</li>
+                        <li> Application métier spécifique sur mesure.</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            </transition>
 
-    <!-- Skills section. -->
-    <section id="skills">
-        <h3>Compétences</h3>
+            <transition name="fade2" appear>
+            <div v-if="service" class="box col-md-6" id="services-top-right">
+                <div class="icon-box">
+                    <i class="icon icon-laptop-4"></i>
+                </div>
+                <div class=box-content>
+                    <h5>Maintenance et évolution</h5>
+                    <p>
+                        Afin qu'une application ou un site web innovant reste à la page, il doit faire l'objet d'une maintenance préventive, corrective ou évolutive.
+                        Je vous propose de vous accompagner sur vos projets d'évolution, de refonte et de migration avec le souci de l'optimisation technique.
+                    </p>
 
-    </section>
-    <!-- Skills section. -->
+                </div>
+            </div>
+            </transition>
+        </div>
 
-    <!-- Developments  section. -->
-    <section id="developments">
-        <h3>Mes réalisations</h3>
+        <!-- First services row -->
 
-    </section>
-    <!-- Developments section. -->
+        <!--  Second services row -->
+        <div class="row services-box">
+            <transition name="fade1" appear>
+            <div v-if="service" class="box col-md-6" id="services-bottom-left">
+                <div class="icon-box" >
+                    <i class="icon icon-startup "></i>
+                </div>
+                <div class="box-content">
+                    <h5>Développeur web et Agile</h5>
+                    <p>Gestion de projet selon une approche pragmatique. De l'analyse des besoins jusqu'à la livraison finale
+                        de la solution, je fais appel à des méthodogies et outils modernes. Vous êtes au coeur du projet, et
+                        c'est en toute transparence que vous suivez son évolution en temps réel.
 
-    <!-- Contact section. -->
-    <section id="contact">
-        <h3>Me contacter</h3>
+                    </p>
+                </div>
+            </div>
+            </transition>
+            <transition name="fade2" appear >
+            <div v-if="service" class="box col-md-6" id="services-bottom-right">
+                <div class="icon-box">
+                    <i class="icon icon-medal"></i>
+                </div>
+                <div class="box-content">
+                    <h5>Qualité de conception</h5>
+                    <p>
+                        Votre projet doit être évolutif et maintenable sur le long terme. C'est pourquoi je m'engage à respecter
+                        un ensemble de bonnes pratiques, essentielles pour obtenir un code robuste. Audits de code réguliers,
+                        mise en place de tests unitaires et fonctionnels, contrôle des performances et monitoring. Respect des standards
+                        de la W3C.
+                    </p>
 
-    </section>
-    <!-- Contact section. -->
+                </div>
+            </div>
+            </transition>
+        </div>
+        <!--  Second services row -->
+    </div>
+</section>
+<!-- Services section. -->
+
+<!-- About section. -->
+<section id="about" class="section-content">
+    <div class="container">
+        <div class="section-title">
+            <h1>QUI SUIS-JE</h1>
+        </div>
+
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-3 mb-3 d-flex justify-content-center">
+                    <img id="avatar" src="{{ asset('images/avatar.png') }}">
+                </div>
+                <div class="col-md-7">
+                    David De Lima, 45 ans.<br/>
+                    Développeur web Backend.<br/>
+                    Freelance.<br/>
+                </div>
+            </div>
+
+            <div class="about-paragraphs">
+
+                <p>
+                    D'abord technicien en électronique en bureau d'études, puis plusieurs années dans la logistique, j'opère un virage à 180 degrés il y
+                    a deux ans pour renouer avec mes premières expériences en développement informatique. Openclassrooms, plateforme de cours en ligne
+                    et leader Européen dans ce domaine m'a permis de relever ce défi. Devenir Chef de projet digital spécialisé dans le développement.
+                </p>
+                <p>
+                    J'aime beaucoup voyager, et toutes les occasions sont bonnes pour découvrir de nouveaux horizons, de nouvelles cultures, de nouvelles
+                    personnes. Je suis curieux de tout ce que je ne connais pas...Mais aussi, sportif aguérri. J'ai pratiqué les sports de combat et le culturisme à un haut niveau.
+                </p>
+                <p>
+                    Autodidacte et passionné, j'attache une grande importance autant à la résolution de petites anomalies techniques qu'à la gestion de projets
+                    d'envergure. J'aime apprendre et j'aime relever de nouveaux défis, tout particulièrement lorsqu'un projet me permet de sortir de ma zone de confort et d'acquérir de nouvelles
+                    compétences. Je m'adapte à vos besoins et suis tout à fait capable d'intégrer une équipe. Amoureux des nouvelles technologies, je pratique une veille quotidienne permanente
+                    afin de vous proposer les dernières avancées technologiques pour vos projets.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- About section. -->
+
+<!-- Skills section. -->
+<section v-view="viewSkillsHandler" id="skills" class="section-content">
+    <div class="container">
+        <div class="section-title">
+            <h1>COMPÉTENCES</h1>
+        </div>
+        <div class="section-content">
+
+            <!-- Language skills -->
+            <div id="language" class="row">
+                <div class="col-sm-12 text-center">
+                    <hr width="100px">
+                    <h6>Languages utilisés</h6>
+                </div>
+            </div>
+            <language v-bind:skill="skill" ></language>
+            <!-- Language skills -->
+
+            <!-- Frameworks skills -->
+            <div id="frameworks" class="row">
+                <div class="col-sm-12 text-center">
+                    <hr width="100px">
+                    <h6>Frameworks</h6>
+                </div>
+            </div>
+            <framework  v-bind:skill="skill" ></framework>
+            <!-- Frameworks skills -->
+
+            <!-- Tools skills -->
+            <div id="tools" class="row">
+                <div class="col-sm-12 text-center">
+                    <hr width="100px">
+                    <h6>Outils</h6>
+                </div>
+            </div>
+            <tool v-bind:skill="skill"></tool>
+            <!-- Tools skills -->
+        </div>
+    </div>
+</section>
+<!-- Skills section. -->
+
+<!-- Developments  section. -->
+<section id="developments">
+    <div class="container">
+        <div class="section-title">
+            <h1>MES RÉALISATIONS</h1>
+        </div>
+        <div class="section-content">
+            <div id="developments" class="row">
+
+                <!-- First development -->
+                <div class="col-md-4">
+                    <!-- Card -->
+                    <div class="card view overlay">
+
+                        <!-- card image -->
+                        <img class="card-img-top" src="{{ asset('images/digoin.jpg') }}" alt="" >
+                        <a href="#">
+                            <div class="mask rgba-teal-strong d-flex align-items-center">
+                                <!-- Overlay content -->
+                                <div class="project-description">
+
+                                    <ul>
+                                        <li>RÉALISÉ A L'AIDE DU CMS WORDPRESS</li>
+                                        <li>THÈME ENFANT PERSONNALISÉ</li>
+                                        <li>GESTION D'ÉVÈNEMENTS</li>
+                                        <li>SYSTÈME DE NEWS</li>
+                                    </ul>
+
+                                    <hr>
+
+                                    <p>Projet réalisé dans le cadre de ma formation afin de promouvoir la ville de Digoin.</p>
+                                </div>
+                                <!-- Overlay content -->
+                            </div>
+                        </a>
+                        <!-- card image -->
+
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <div class="card-title">
+                                <h6><strong>Ville de Digoin</strong></h6>
+                            </div>
+                            <!-- Title -->
+                            <p class="card-text">
+
+                            </p>
+
+                        </div>
+                        <!-- Card content -->
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!-- First development -->
+
+                <!-- Second development -->
+                <div class="col-md-4">
+                    <!-- Card -->
+                    <div class="card view overlay">
+
+                        <!-- card image -->
+                            <img class="card-img-top" src="{{ asset('images/plane.jpg') }}" alt="" >
+                            <a href="#">
+                                <div class="mask rgba-teal-strong d-flex align-items-center">
+                                    <!-- Overlay content -->
+                                    <div class="project-description">
+
+                                        <ul>
+                                            <li>UTILISATION DU FRAMEWORK PHP "SILEX"</li>
+                                            <li>BOOTSTRAP</li>
+                                            <li>PHP, POO</li>
+                                            <li>JAVASCRIPT, JQUERY</li>
+                                            <li>MYSQL</li>
+                                            <li>ARCHITECTURE MVC</li>
+                                        </ul>
+
+                                        <hr>
+
+                                        <p>Projet de blog réalisé dans le cadre de ma formation. Gestion utilisateurs, articles et commentaires à l'aide d'un espace administrateur.</p>
+                                    </div>
+                                    <!-- Overlay content -->
+
+                                </div>
+                            </a>
+                        <!-- card image -->
+
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <div class="card-title">
+                                <h6><strong>Blog Jean Forteroche</strong></h6>
+                            </div>
+                            <p class="card-text">
+
+                            </p>
+                            <!-- Title -->
+                        </div>
+                        <!-- Card content -->
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!-- Second development -->
+
+                <!-- Third development -->
+                <div class="col-md-4">
+                    <!-- Card -->
+                    <div class="card view overlay">
+
+                        <!-- card image -->
+                            <img class="card-img-top" src="{{ asset('images/louvre.jpg') }}" alt="" >
+                            <a href="#">
+                                <div class="mask rgba-teal-strong d-flex align-items-center">
+                                    <!-- Overlay content -->
+                                    <div class="project-description">
+
+                                        <ul>
+                                            <li>UTILISATION DE "SYMFONY 4"</li>
+                                            <li>PHP, JAVASCRIPT(JQUERY)</li>
+                                            <li>MYSQL.</li>
+                                            <li>TEST UNITAIRES, ET FONCTIONNELS</li>
+                                            <li>SYSTÈME DE PAIEMENT "STRIPE"</li>
+                                        </ul>
+
+                                        <hr>
+
+                                        <p>Projet de blog réalisé dans le cadre de ma formation. Développement à l'aide de Symfony 4 afin d'appréhender ses principales fonctionnalités et principes.
+                                            Formulaires, validation, services, évènements, swiftmailer, tests. </p>
+                                    </div>
+                                    <!-- Overlay content -->
+                                </div>
+                            </a>
+                        <!-- card image -->
+
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <div class="card-title">
+                                <h6><strong>Billetterie</strong></h6>
+                            </div>
+                            <p class="card-text">
+
+                            </p>
+                            <!-- Title -->
+                        </div>
+                        <!-- Card content -->
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!-- Third development -->
+
+                <!-- Fourth development -->
+                <div class="col-md-4">
+                    <!-- Card -->
+                    <div class="card view overlay">
+                        <!-- card image -->
+
+                            <img class="card-img-top" src="{{ asset('images/gallery.jpg') }}" alt="" >
+                            <a href="#">
+                                <div class="mask rgba-teal-strong d-flex align-items-center">
+                                    <!-- Overlay content -->
+                                    <div class="project-description">
+
+                                        <ul>
+                                            <li>SYMFONY 4</li>
+                                            <li>PHP, JAVASCRIPT, AJAX</li>
+                                            <li>MYSQL</li>
+                                            <li>DOCKER</li>
+                                            <li>TRAVIS CI</li>
+                                        </ul>
+
+                                        <hr>
+
+                                        <p>Site réalisé pour le compte d'un photographe professionnel.
+                                            Utilisation avancée de Symfony 4.
+                                        </p>
+                                    </div>
+                                    <!-- Overlay content -->
+                                </div>
+                            </a>
+                        <!-- card image -->
+
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <div class="card-title">
+                                <h6><strong>Gallerie photo</strong></h6>
+                            </div>
+                            <p class="card-text">
+
+                            </p>
+                            <!-- Title -->
+                        </div>
+                        <!-- Card content -->
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!-- Fourth development -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+</section>
+<!-- Developments section. -->
+
+<!-- Contact section. -->
+<section id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h1>ME CONTACTER</h1>
+        </div>
+
+    </div>
+
+
+</section>
+<!-- Contact section. -->
 
 
 
 
 
-    <button type="button" class="btn btn-cyan">valider</button>
+<button type="button" class="btn btn-cyan">valider</button>
 {% endblock %}
