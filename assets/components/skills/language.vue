@@ -53,7 +53,6 @@ export default {
     watch: {
         skill: function () {
             this.addSkill();
-
         }
     }
 

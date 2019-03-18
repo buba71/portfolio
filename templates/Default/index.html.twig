@@ -33,7 +33,7 @@
                 </a>
             </div>
 
-            <div id="contact_link">
+            <div id="contact_link" class="text-center">
                <a class="btn" id="contact_btn" href="#" v-scroll-to="'#contact'" style="font-family: 'Roboto Mono Medium';">Contactez-moi</a>
             </div>
             <!-- Description -->
@@ -41,7 +41,7 @@
 
         <div class="col-md-5 d-flex justify-content-center align-items-end">
             <div id="illustration" class="d-flex justify-content-center align-items-center">
-                <img id="computer" class="" src="{{ asset('images/web-app.png') }}">
+                <img id="computer" class="" src="{{ asset('images/development.png') }}">
             </div>
         </div>
 
@@ -69,7 +69,7 @@
                     <p>Je réalise vos projets web grâce à des solutions efficaces et modernes tout en respectant vos besoins:
                     <ul>
                         <li> Site vitrine.</li>
-                        <li> Application Web Monopage(SPA).</li>
+                        <li> Application web monopage(SPA).</li>
                         <li> E-boutique.</li>
                         <li> Application métier spécifique sur mesure.</li>
                     </ul>
@@ -145,17 +145,14 @@
         </div>
 
         <div class="section-content">
-            <div class="row">
-                <div class="col-md-3 mb-3 d-flex justify-content-center">
-                    <img id="avatar" src="{{ asset('images/avatar.png') }}">
-                </div>
-                <div class="col-md-7">
-                    David De Lima, 45 ans.<br/>
-                    Développeur web Backend.<br/>
-                    Freelance.<br/>
-                </div>
+            <div class="d-flex justify-content-center">
+                <img id="avatar"src="{{ asset('images/avatar.png') }}"><br/>
             </div>
-
+            <div id="avatar-description" class="text-center mt-2 mb-5">
+                <h5>David De Lima, 45 ans.</h5>
+                <em>Développeur web Backend.</em><br/>
+                <em>Freelance.</em><br/>
+            </div>
             <div class="about-paragraphs">
 
                 <p>
@@ -170,8 +167,8 @@
                 <p>
                     Autodidacte et passionné, j'attache une grande importance autant à la résolution de petites anomalies techniques qu'à la gestion de projets
                     d'envergure. J'aime apprendre et j'aime relever de nouveaux défis, tout particulièrement lorsqu'un projet me permet de sortir de ma zone de confort et d'acquérir de nouvelles
-                    compétences. Je m'adapte à vos besoins et suis tout à fait capable d'intégrer une équipe. Amoureux des nouvelles technologies, je pratique une veille quotidienne permanente
-                    afin de vous proposer les dernières avancées technologiques pour vos projets.
+                    compétences. Je m'adapte à vos besoins et suis tout à fait capable d'intégrer votre équipe. Amoureux des nouvelles technologies, je pratique une veille quotidienne permanente
+                    afin de vous proposer les dernières avancées technologiques pour vos projets innovants.
                 </p>
 
             </div>
@@ -440,6 +437,18 @@
         <div class="section-title">
             <h1>ME CONTACTER</h1>
         </div>
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-8">
+                    <contact-form></contact-form>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+
+
+        </div>
 
     </div>
 
@@ -449,7 +458,4 @@
 
 
 
-
-
-<button type="button" class="btn btn-cyan">valider</button>
 {% endblock %}

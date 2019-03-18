@@ -5,7 +5,7 @@ import language from '../components/skills/language';
 import framework from '../components/skills/framework';
 import tool from '../components/skills/tool';
 import scrollButton from '../components/navigation/scrollButton';
-
+import ContactForm from '../components/contact/contactForm';
 
 Vue.use(
     VueScrollTo,
@@ -31,7 +31,7 @@ let app = new Vue(
             {
                 el: '#app',
                 delimiters: [ '${', '}'],
-                components: { language, framework, tool, scrollButton },
+                components: { language, framework, tool, scrollButton, ContactForm },
                 data: {
                     service: false,
                     skill: false,
@@ -54,12 +54,13 @@ let app = new Vue(
                             v.preloader = false;
                         },3000)
                     },
+                    // close navBar onclick in mobile view
                     close() {
                         let closeMenu = $('#navbarNav');
                         closeMenu.removeClass('show');
                     }
                 },
-                mounted () {
+                mounted: function () {
                     this.preloading();
                 }
 

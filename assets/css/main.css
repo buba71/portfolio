@@ -77,7 +77,6 @@ section {
 .btn#contact_btn {
     margin-top: 20px;
     margin-bottom: 20px;
-    float: right;
     background-color: #2BA5D9;
     border: 1px solid #FFF;
     border-radius: 30px;
@@ -99,6 +98,7 @@ section {
 #github-icon, #linkedin-icon, #codewars-icon {
     margin-top: 10px;
     margin-right: 10px;
+    margin-left: 10px;
     width: 40px;
     height: 40px;
     transition: transform .5s ease;
@@ -134,6 +134,7 @@ section {
 #avatar {
     border-radius: 50%;
 }
+
 .about-paragraphs p {
     text-indent: 5em;
     hyphens: manual;
@@ -156,7 +157,7 @@ section {
 .card {
     margin-bottom: 30px;
     padding: 5px;
-    border: 2px solid #39B59F;
+    border: 1px solid #39B59F;
     border-radius: 20px;
     box-shadow: 0 0;
 }
@@ -172,7 +173,7 @@ section {
     height: 80%;
     padding: 15px;
     margin-right: 30px;
-    background-color: #2BA5D9;
+    background-color: #39B59F;
 }
 
 .project-description {
@@ -182,6 +183,33 @@ section {
 .project-description hr {
     width: 50px;
     border-color: #FFF;
+}
+
+.form-error {
+    color: #f44248;
+}
+
+.md-form input:focus {
+    color: #ff0000 !important;
+    box-shadow: 0 1px green !important;
+    border-bottom: 1px solid green !important;
+}
+
+.md-form textarea:focus {
+    color: #000;
+    box-shadow: 0 1px green !important;
+    border-bottom: 1px solid green !important;
+}
+.md-form input[type=text]:focus:not([readonly]) + label {
+    color: #CC0000;
+}
+.md-form input[type=email]:focus:not([readonly]) + label {
+    color: #CC0000;
+}
+
+footer {
+    background-color: #2BA5D9;
+    height: 100px;
 }
 
 /* Media queries */

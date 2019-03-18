@@ -2,25 +2,24 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use Symfony\Component\HttpFoundation\Response;
+use Twig\Environment;
 
 
 /**
  * Class DefaultController
  */
-class DefaultController extends AbstractController
+class DefaultController
 {
 
 
     /**
-     * Hgfdfityd
-     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function index(Environment $twig ): Response
     {
-        return $this->render('Default/index.html.twig');
-
+       return new Response($twig->render('Default/index.html.twig'));
     }
 
 
