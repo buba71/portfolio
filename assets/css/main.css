@@ -57,9 +57,9 @@ section {
 
 #home {
     background-color: #39B59F;
-    height: 1000px;
+    height: 900px;
     padding-left: 20px;
-    padding-bottom: 150px;
+    padding-bottom: 0;
 }
 
 #introduction {
@@ -83,11 +83,23 @@ section {
 
 }
 
+#triangle {
+    width: 0;
+    height: 0;
+    border-left: 1000px solid transparent;
+
+    border-bottom: 500px solid #2BA5D9;
+}
+
 #illustration {
+    position:absolute;
+    right: 20px;
+    bottom: 50px;
     background-color: #FFFF;
     width: 500px;
     height: 500px;
     border-radius: 50%;
+    z-index: 5;
 }
 
 #computer {
