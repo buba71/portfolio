@@ -5,3 +5,8 @@ import 'mdbootstrap/css/mdb.css';
 import 'mdbootstrap/js/bootstrap.min';
 import 'mdbootstrap/js/mdb';
 
+
+// Create global $ and jQuery variables.
+const $ = require('jquery');
+global.$ = global.jQuery = $;
+

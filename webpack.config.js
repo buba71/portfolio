@@ -10,6 +10,8 @@ Encore
     .enableVersioning(Encore.isProduction())
     .addEntry('js/vue', './assets/js/vue.js')
     .addEntry('js/app', './assets/js/app.js')
+    .addEntry('css/main', './assets/css/main.css')
+    .addEntry('css/icons','./assets/css/icons.css')
 
     // Enable Vue loader.
     .enableVueLoader()
@@ -17,5 +19,6 @@ Encore
     .autoProvidejQuery()
     // Enable sass.
     .enableSassLoader()
+    .autoProvidejQuery()
 
 module.exports = Encore.getWebpackConfig();

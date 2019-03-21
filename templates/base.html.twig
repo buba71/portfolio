@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Roboto+Mono:100, 700">
         <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/css/icons.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+    <div id="app">
+
+        <!-- Preloader -->
+        <div id="preloader" v-if="preloader">
+            <img src="{{ asset('images/preloader.gif') }}">
+        </div>
+        <!-- Preloader -->
+
+        <div id="app-wrapper" v-else>
         <!-- Main navigation -->
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+                <a class="navbar-brand" href="#" v-scroll-to="'#logo'" id="logo">david-de-lima.tech</a>
+                <button id="toggler" class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <ul class="navbar-nav" v-on:click="close">
+                        <li class="nav-item ">
+                            <a class="nav-link" id="blog" href="#" >Blog</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" v-scroll-to="'#services'" >Mes services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#" v-scroll-to="'#about'">Qui suis-je</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#" v-scroll-to="'#skills'">Compétences</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="#" v-scroll-to="'#developments'">Mes réalisations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" v-scroll-to="'#contact'">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -44,13 +64,23 @@
         </main>
         <!-- Main layout -->
 
-        <!-- Footer -->
-        <footer>
 
-        </footer>
+        <!-- Footer --->
+       <footer class="d-flex align-items-center justify-content-center">
+            <p><i class="far fa-copyright"></i> Copyright 2018 - David De Lima - Développeur Web Freelance.<span id="siren">N°SIREN: 50 12 25 41 215</span> </p>
+       </footer>
         <!-- Footer -->
+
+    </div>
+
+    </div>
+
+
         {% block javascripts %}{% endblock %}
+
     <script src="{{ asset('build/js/vue.js') }}"></script>
-    <script src="{{ asset('build/js/app.js') }}"></script>
+    <script src="{{ asset('build/js/app.js') }}"></script>    
+
+
     </body>
 </html>
