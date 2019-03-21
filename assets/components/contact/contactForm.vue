@@ -54,7 +54,7 @@
         <!-- Content -->
 
         <!-- Submit button -->
-            <button type="submit" class="btn btn-default">
+            <button type="submit" id="submit-button" class="btn btn-outline-default">
                 <span>Envoyer <span v-if="submitting" class="fa fa-spinner fa-x fa-spin"></span></span>
             </button>
         <!-- Submit button -->

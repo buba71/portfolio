@@ -39,7 +39,7 @@ let app = new Vue(
                 },
                 methods: {
                     viewServiceHandler(e) {
-                        if (e.type === 'enter') {
+                        if (e.percentInView === 'enter') {
                             this.service = true;
                         }
                     },

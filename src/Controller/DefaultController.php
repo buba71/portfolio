@@ -19,7 +19,7 @@ class DefaultController
      */
     public function index(Environment $twig ): Response
     {
-       return new Response($twig->render('Default/index.html.twig'));
+        return new Response($twig->render('Default/index.html.twig'));
     }
 
 
