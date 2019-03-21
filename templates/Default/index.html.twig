@@ -6,8 +6,7 @@
 <div class="container-fluid">
     <scroll-button v-if="service"></scroll-button>
     <section class="row " id="home">
-        <div class="col-md-6" id="introduction">
-
+        <div class="col-lg-6" id="introduction">
 
             <!-- Description -->
             <p id="introduction-paragraphe">
@@ -39,9 +38,9 @@
             <!-- Description -->
         </div>
 
-        <div class="col-md-6 d-flex align-items-end">
+        <div class="col-lg-6 d-flex justify-content-end">
 
-            <div id="triangle">
+            <div id="triangle-form" class="h-100">
                 <div id="illustration" class="d-flex justify-content-center align-items-center">
                     <img id="computer" class="" src="{{ asset('images/development.png') }}">
                 </div>
@@ -82,7 +81,7 @@
             </div>
             </transition>
 
-            <transition name="fade2" appear>
+            <transition name="fade2">
             <div v-if="service" class="box col-md-6" id="services-top-right">
                 <div class="icon-box">
                     <i class="icon icon-laptop-4"></i>
@@ -103,7 +102,7 @@
 
         <!--  Second services row -->
         <div class="row services-box">
-            <transition name="fade1" appear>
+            <transition name="fade1">
             <div v-if="service" class="box col-md-6" id="services-bottom-left">
                 <div class="icon-box" >
                     <i class="icon icon-startup "></i>
@@ -118,7 +117,7 @@
                 </div>
             </div>
             </transition>
-            <transition name="fade2" appear >
+            <transition name="fade2">
             <div v-if="service" class="box col-md-6" id="services-bottom-right">
                 <div class="icon-box">
                     <i class="icon icon-medal"></i>
@@ -425,6 +424,55 @@
 
                 </div>
                 <!-- Fourth development -->
+
+                <!-- Fourth development -->
+                <div class="col-md-4">
+                    <!-- Card -->
+                    <div class="card view overlay">
+                        <!-- card image -->
+
+                        <img class="card-img-top" src="{{ asset('images/gallery.jpg') }}" alt="" >
+                        <a href="#">
+                            <div class="mask rgba-teal-strong d-flex align-items-center">
+                                <!-- Overlay content -->
+                                <div class="project-description">
+
+                                    <ul>
+                                        <li>SYMFONY 4</li>
+                                        <li>PHP, JAVASCRIPT, AJAX</li>
+                                        <li>MYSQL</li>
+                                        <li>DOCKER</li>
+                                        <li>TRAVIS CI</li>
+                                    </ul>
+
+                                    <hr>
+
+                                    <p>Site réalisé pour le compte d'un photographe professionnel.
+                                        Utilisation avancée de Symfony 4.
+                                    </p>
+                                </div>
+                                <!-- Overlay content -->
+                            </div>
+                        </a>
+                        <!-- card image -->
+
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <div class="card-title">
+                                <h6><strong>Gallerie photo</strong></h6>
+                            </div>
+                            <p class="card-text">
+
+                            </p>
+                            <!-- Title -->
+                        </div>
+                        <!-- Card content -->
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!-- Fourth development -->
             </div>
         </div>
     </div>
@@ -442,12 +490,27 @@
             <h1>ME CONTACTER</h1>
         </div>
         <div class="section-content">
+            <strong>Vous pouvez me laisser un message en remplissant le formulaire ci-dessous</strong>
             <div class="row">
                 <div class="col-md-8">
                     <contact-form></contact-form>
                 </div>
                 <div class="col-md-4">
-
+                    <ul class="list-unstyled mt-3 ml-5">
+                        <li>
+                            <p><i class="fas fa-map-marker-alt pr-2"></i> Digoin, France</p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-phone pr-2"></i> 06-62-25-52-76</p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-envelope"></i> d.delima@david-de-lima.tech</p>
+                        </li>
+                        <li class="mt-5">
+                            <i class="fab fa-linkedin fa-2x grey-text"></i>
+                            <i class="fab fa-github-square fa-2x grey-text"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
