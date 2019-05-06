@@ -5,7 +5,7 @@
         <div v-if="success && !submitting" class="alert alert-success text-center">
             <span> Votre message a été envoyé avec succès.</span>
         </div>
-        <div class="row mb3">
+        <div class="row mb2">
             <!-- Last Name -->
             <div class="col-sm-6">
                 <div class="md-form">
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Email -->
-        <div class="md-form mb-4">
+        <div class="md-form mb-2">
             <input type="email" id="senderEmail" class="form-control" v-model="form.senderEmail">
             <label for="senderEmail">Adresse mail</label>
         </div>
@@ -36,7 +36,7 @@
         <!-- Email -->
 
         <!-- Subject -->
-        <div class="md-form mb-4">
+        <div class="md-form mb-2">
             <input type="text" id="messageObj" class="form-control" v-model="form.messageObj">
             <label for="messageObj">Sujet de votre message</label>
             <small class="form-text text-muted mb-4">
@@ -46,8 +46,8 @@
         <!-- Subject -->
 
         <!-- Content -->
-        <div class="md-form mb-4">
-            <textarea id="message" class="form-control md-textarea" rows="6" v-model="form.content"></textarea>
+        <div class="md-form mb-2">
+            <textarea id="message" class="form-control md-textarea" rows="4" v-model="form.content"></textarea>
             <label for="lastName"><i class="fas fa-pencil-alt"></i> Votre message</label>
         </div>
         <span class="form-error" v-for="error in errors" v-if="error.propertyPath === 'content'">{{ error.message }}</span><br/>

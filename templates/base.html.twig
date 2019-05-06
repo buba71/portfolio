@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="fr">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Roboto+Mono:100, 700">
-        <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('build/css/main.css') }}">
-        <link rel="stylesheet" href="{{ asset('build/css/icons.css') }}">
+        <title>{% block title %}David De Lima - Entrepreneur - Développeur web PHP/Symfony et Vue.js {% endblock %}</title>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Développeur web Freelance spécialisé PHP/Symfony et vue.js. Je met mes compétences à votre service pour la réalisation de vos projets web."/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Roboto+Mono:300"/>
+        <link rel="stylesheet" href="{{ asset('build/js/app.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('build/css/main.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('build/css/icons.css') }}"/>
         {% block stylesheets %}{% endblock %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78369194-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-78369194-2');
+        </script>
     </head>
     <body>
 
     <div id="app">
 
         <!-- Preloader -->
+        <!--
         <div id="preloader" v-if="preloader">
-            <img src="{{ asset('images/preloader.gif') }}">
+            <img src="{{ asset('images/preloader.gif') }}" alt="preload">
         </div>
+        -->
         <!-- Preloader -->
 
-        <div id="app-wrapper" v-else>
+        <!-- Ajouter le "v-else" dans wrapper si preloader -->
+        <div id="app-wrapper">
         <!-- Main navigation -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -65,9 +78,25 @@
         <!-- Main layout -->
 
 
-        <!-- Footer --->
-       <footer class="d-flex align-items-center justify-content-center">
-            <p><i class="far fa-copyright"></i> Copyright 2018 - David De Lima - Développeur Web Freelance.<span id="siren">N°SIREN: 50 12 25 41 215</span> </p>
+        <!-- Footer -->
+       <footer class="page-footer text-center pt-3">
+
+            <p>
+                <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
+                    <i class="fab fa-linkedin fa-2x white-text mr-2"></i>
+                </a>
+                <a href="https://github.com/buba71" data-toggle="toolti^p" title="Profil Github">
+                    <i class="fab fa-github-square fa-2x white-text"></i>
+                </a>
+            </p>
+
+           <!-- Copyright -->
+           <div class="footer-copyright text-center py-3 flex j">© 2018 Copyright:
+               <span> David De Lima - Développeur Web Freelance - N°SIRET: 849 515 564 00011</span>
+           </div>
+           <!-- Copyright -->
+
+
        </footer>
         <!-- Footer -->
 

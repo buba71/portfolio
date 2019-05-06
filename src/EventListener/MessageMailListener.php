@@ -25,7 +25,7 @@ class MessageMailListener
      * @throws \Swift_SwiftException
      * @ Event Listener on MAil post Persist
      */
-    public function postPersist (LifecycleEventArgs $args)
+    public function postPersist(LifecycleEventArgs $args)
     {
         $message = $args->getObject();
 
