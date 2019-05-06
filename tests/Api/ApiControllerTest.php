@@ -48,7 +48,7 @@ class ApiControllerTest extends WebTestCase
     /**
      * Test Response from api create a new message '/api/messages'.
      */
-    public function testCreateMessage ():void
+    public function testCreateMessage():void
     {
         $data = [
             'senderFirstName' => 'David',

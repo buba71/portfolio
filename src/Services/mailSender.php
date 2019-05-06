@@ -33,22 +33,20 @@ class mailSender
     {
         $newMail = (new \Swift_Message('Un nouveau message reçu'))
             ->setFrom('d.delima@outlook.fr')
-            ->setTo('davdelima@gmail.com')
+            ->setTo('davdelima71@gmail.com')
             ->setBody('Voici un message de la part de Monsieur : ' . $lastName . ' ' . $firstName .'<br/>' .
                 'adresse mail : ' . $mail . '<br/>' .
-                $content . '<br/>'
-            );
+                $content . '<br/>');
+
         // if error mailling, throw exception
        if(!$this->mailer->send($newMail, $failures)) {
-
            throw new \Swift_TransportException('Une erreur s\'est produite lors de l\'envoi de ce mail : ' . $mail . ' , /Erreur : ' . $failures);
+
            // Logging error
            $this->logger->critical('Une erreur s\'est produite lors de l\'envoi de ce mail : ' . $mail . ' , /Erreur : ' . $failures);
 
-       } ;
+       };
 
-       $this->logger->info('Message from : ' . $mail . ' was sent' );
-
+        $this->logger->info('Message from : ' . $mail . ' was sent');
     }
-
 }

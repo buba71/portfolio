@@ -7,6 +7,9 @@
     <scroll-button v-if="service"></scroll-button>
     <section class="row " id="home">
         <div class="col-lg-6" id="introduction">
+            <!-- Title -->
+            <h1 id="introduction-title">Developpeur Web Freelance</h1>
+            <!-- Title -->
 
             <!-- Description -->
             <p id="introduction-paragraphe">
@@ -17,18 +20,16 @@
             accompagner dans la création d'une solution web sur mesure et adaptée à votre coeur de métier.<br/>
             </p>
 
-            <!-- Title -->
-            <h1 class="text-center">Developpeur Web Freelance</h1>
-            <!-- Title -->
+
             <div class="social-links d-flex justify-content-center">
-                <a href="#">
-                    <img id="github-icon" class="" src="{{ asset('images/github.png') }}">
+                <a href="https://github.com/buba71" data-toggle="tooltip" title="Profil Github">
+                    <img id="github-icon" class="" src="{{ asset('images/github.png') }}" alt="github">
                 </a>
-                <a href="#">
-                    <img id="linkedin-icon"  class="" src="{{ asset('images/linkedin.png') }}">
+                <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
+                    <img id="linkedin-icon"  class="" src="{{ asset('images/linkedin.png') }}" alt="linkedin">
                 </a>
-                <a href="#">
-                    <img id="codewars-icon" class="" src="{{ asset('images/codewars.png') }}">
+                <a href="https://www.codewars.com/users/buba71" data-toggle="tooltip" title="Profil Codewars">
+                    <img id="codewars-icon" class="" src="{{ asset('images/codewars.png') }}" alt="codewars">
                 </a>
             </div>
 
@@ -38,15 +39,17 @@
             <!-- Description -->
         </div>
 
-        <div class="col-lg-6 d-flex justify-content-end">
+        <!-- Illustration -->
+        <div class="col-lg-6 d-flex justify-content-end" id="illustration-header">
 
             <div id="triangle-form" class="h-100">
                 <div id="illustration" class="d-flex justify-content-center align-items-center">
-                    <img id="computer" class="" src="{{ asset('images/development.png') }}">
+                    <img id="computer" class="" src="{{ asset('images/development.png') }}" alt="computer">
                 </div>
             </div>
 
         </div>
+        <!-- Illustration -->
 
 
     </section>
@@ -57,7 +60,7 @@
 <section v-view="viewServiceHandler" id="services" class="section-content">
     <div class="container">
         <div class="section-title">
-            <h1>MES SERVICES</h1>
+            <h2>MES SERVICES</h2>
         </div>
 
         <!-- First services row -->
@@ -69,14 +72,13 @@
                 </div>
                 <div class="box-content">
                     <h5>Développement</h5>
-                    <p>Je réalise vos projets web grâce à des solutions efficaces et modernes tout en respectant vos besoins:
-                    <ul>
-                        <li> Site vitrine.</li>
-                        <li> Application web monopage(SPA).</li>
-                        <li> E-boutique.</li>
-                        <li> Application métier spécifique sur mesure.</li>
-                    </ul>
-                    </p>
+                    <p>Je réalise vos projets web grâce à des solutions efficaces et modernes tout en respectant vos besoins:</p>
+                        <ul>
+                            <li> Site vitrine.</li>
+                            <li> Application web monopage(SPA).</li>
+                            <li> E-boutique.</li>
+                            <li> Application métier spécifique sur mesure.</li>
+                        </ul>
                 </div>
             </div>
             </transition>
@@ -89,7 +91,7 @@
                 <div class=box-content>
                     <h5>Maintenance et évolution</h5>
                     <p>
-                        Afin qu'une application ou un site web innovant reste à la page, il doit faire l'objet d'une maintenance préventive, corrective ou évolutive.
+                        Afin qu'une application ou un site web innovant reste à jour, il doit faire l'objet d'une maintenance préventive, corrective ou évolutive.
                         Je vous propose de vous accompagner sur vos projets d'évolution, de refonte et de migration avec le souci de l'optimisation technique.
                     </p>
 
@@ -144,12 +146,12 @@
 <section id="about" class="section-content">
     <div class="container">
         <div class="section-title">
-            <h1>QUI SUIS-JE</h1>
+            <h2>QUI SUIS-JE</h2>
         </div>
 
         <div class="section-content">
             <div class="d-flex justify-content-center">
-                <img id="avatar"src="{{ asset('images/avatar.png') }}"><br/>
+                <img id="avatar" src="{{ asset('images/avatar1.png') }}" alt="developper"><br/>
             </div>
             <div id="avatar-description" class="text-center mt-2 mb-5">
                 <h5>David De Lima, 45 ans.</h5>
@@ -185,7 +187,7 @@
 <section v-view="viewSkillsHandler" id="skills" class="section-content">
     <div class="container">
         <div class="section-title">
-            <h1>COMPÉTENCES</h1>
+            <h2>COMPÉTENCES</h2>
         </div>
         <div class="section-content">
 
@@ -227,10 +229,10 @@
 <section id="developments">
     <div class="container">
         <div class="section-title">
-            <h1>MES RÉALISATIONS</h1>
+            <h2>MES RÉALISATIONS</h2>
         </div>
         <div class="section-content">
-            <div id="developments" class="row">
+            <div class="row">
 
                 <!-- First development -->
                 <div class="col-md-4">
@@ -238,7 +240,7 @@
                     <div class="card view overlay">
 
                         <!-- card image -->
-                        <img class="card-img-top" src="{{ asset('images/digoin.jpg') }}" alt="" >
+                        <img class="card-img-top" src="{{ asset('images/digoin.jpg') }}" alt="digoin website" >
                         <a href="#">
                             <div class="mask rgba-teal-strong d-flex align-items-center">
                                 <!-- Overlay content -->
@@ -285,7 +287,7 @@
                     <div class="card view overlay">
 
                         <!-- card image -->
-                            <img class="card-img-top" src="{{ asset('images/plane.jpg') }}" alt="" >
+                            <img class="card-img-top" src="{{ asset('images/plane.jpg') }}" alt="jean-forteroche website" >
                             <a href="#">
                                 <div class="mask rgba-teal-strong d-flex align-items-center">
                                     <!-- Overlay content -->
@@ -334,7 +336,7 @@
                     <div class="card view overlay">
 
                         <!-- card image -->
-                            <img class="card-img-top" src="{{ asset('images/louvre.jpg') }}" alt="" >
+                            <img class="card-img-top" src="{{ asset('images/louvre.jpg') }}" alt="louvre booking website" >
                             <a href="#">
                                 <div class="mask rgba-teal-strong d-flex align-items-center">
                                     <!-- Overlay content -->
@@ -350,7 +352,7 @@
 
                                         <hr>
 
-                                        <p>Projet de blog réalisé dans le cadre de ma formation. Développement à l'aide de Symfony 4 afin d'appréhender ses principales fonctionnalités et principes.
+                                        <p>Projet de billetterie en ligne pour le musée du Louvre dans le cadre de ma formation. Développement à l'aide de Symfony 4 afin d'appréhender ses principales fonctionnalités et principes.
                                             Formulaires, validation, services, évènements, swiftmailer, tests. </p>
                                     </div>
                                     <!-- Overlay content -->
@@ -382,7 +384,7 @@
                     <div class="card view overlay">
                         <!-- card image -->
 
-                            <img class="card-img-top" src="{{ asset('images/gallery.jpg') }}" alt="" >
+                            <img class="card-img-top" src="{{ asset('images/gallery.jpg') }}" alt="photographer website" >
                             <a href="#">
                                 <div class="mask rgba-teal-strong d-flex align-items-center">
                                     <!-- Overlay content -->
@@ -398,7 +400,7 @@
 
                                         <hr>
 
-                                        <p>Site réalisé pour le compte d'un photographe professionnel.
+                                        <p>Galerie photo réalisée pour un photographe professionnel.
                                             Utilisation avancée de Symfony 4.
                                         </p>
                                     </div>
@@ -411,7 +413,7 @@
                         <div class="card-body">
                             <!-- Title -->
                             <div class="card-title">
-                                <h6><strong>Gallerie photo</strong></h6>
+                                <h6><strong>Galerie photo</strong></h6>
                             </div>
                             <p class="card-text">
 
@@ -431,14 +433,14 @@
                     <div class="card view overlay">
                         <!-- card image -->
 
-                        <img class="card-img-top" src="{{ asset('images/gallery.jpg') }}" alt="" >
+                        <img class="card-img-top" src="{{ asset('images/portfolio.PNG') }}" alt="portfolio website" >
                         <a href="#">
                             <div class="mask rgba-teal-strong d-flex align-items-center">
                                 <!-- Overlay content -->
                                 <div class="project-description">
 
                                     <ul>
-                                        <li>SYMFONY 4</li>
+                                        <li>SYMFONY 4, VUE.JS, API PLATFORM</li>
                                         <li>PHP, JAVASCRIPT, AJAX</li>
                                         <li>MYSQL</li>
                                         <li>DOCKER</li>
@@ -447,9 +449,7 @@
 
                                     <hr>
 
-                                    <p>Site réalisé pour le compte d'un photographe professionnel.
-                                        Utilisation avancée de Symfony 4.
-                                    </p>
+                                    <p>Site web monopage(SPA) utilisant vue.js pour le frontend couplé à symfony 4 pour le backend grâce à une API(API Platform).</p>
                                 </div>
                                 <!-- Overlay content -->
                             </div>
@@ -460,7 +460,7 @@
                         <div class="card-body">
                             <!-- Title -->
                             <div class="card-title">
-                                <h6><strong>Gallerie photo</strong></h6>
+                                <h6><strong>Portfolio</strong></h6>
                             </div>
                             <p class="card-text">
 
@@ -487,30 +487,28 @@
 <section id="contact">
     <div class="container">
         <div class="section-title">
-            <h1>ME CONTACTER</h1>
+            <h2>ME CONTACTER</h2>
         </div>
         <div class="section-content">
-            <strong>Vous pouvez me laisser un message en remplissant le formulaire ci-dessous</strong>
+            <span>Un renseignement, un projet à proposer ? Contactez-moi en utilisant le formulaire ci-dessous.</span>
             <div class="row">
                 <div class="col-md-8">
                     <contact-form></contact-form>
                 </div>
-                <div class="col-md-4">
-                    <ul class="list-unstyled mt-3 ml-5">
-                        <li>
-                            <p><i class="fas fa-map-marker-alt pr-2"></i> Digoin, France</p>
-                        </li>
-                        <li>
-                            <p><i class="fas fa-phone pr-2"></i> 06-62-25-52-76</p>
-                        </li>
-                        <li>
-                            <p><i class="fas fa-envelope"></i> d.delima@david-de-lima.tech</p>
-                        </li>
-                        <li class="mt-5">
-                            <i class="fab fa-linkedin fa-2x grey-text"></i>
-                            <i class="fab fa-github-square fa-2x grey-text"></i>
-                        </li>
-                    </ul>
+                <div class="col-md-4 d-flex justify-content-center mt-5">
+                    <address>
+                        <ul class="list-unstyled mt-3 ml-5">
+                            <li>
+                                <p><i class="fas fa-map-marker-alt pr-2"></i> Bourgogne, France</p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-phone pr-2"></i> 06-62-25-52-76</p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-envelope"></i> contact@david-de-lima.tech</p>
+                            </li>
+                        </ul>
+                    </address>
                 </div>
             </div>
 
