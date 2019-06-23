@@ -2,3 +2,14 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
+posts:
+    path: /posts
+    controller: App\Controller\DefaultController::posts
+
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::index
+
+logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout

@@ -201,12 +201,11 @@ section {
     margin-bottom: 30px;
     padding: 5px;
     border: 1px solid #39B59F;
-    border-radius: 20px;
     box-shadow: 0 0;
 }
 
-.card-img-top {
-    border-radius: 20px 20px 0 0;
+.post-item {
+    padding: 15px;
 }
 .mask {
     font-family: arial, helvetica, sans-serif;
@@ -260,6 +259,68 @@ section {
 #submit-button:hover {
     box-shadow: 1px 1px 10px gray;
 }
+
+.login-form {
+    margin-top:200px;
+    margin-bottom: 200px;
+}
+
+/* Blog */
+
+
+nav .pagination {
+    background-color: #FFF;
+}
+
+.navControl {
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+.navControl i, .fullPost i, .fullPost span {
+    color: #2BA5D9;
+}
+
+.navControl span {
+    font-size: x-large;
+    margin-left: 10px;
+    line-height: 26px;
+}
+
+.tag-list  {
+    display: inline-flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+.tag-item {
+    font-size: small;
+    color: #000;
+    min-width: 60px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    cursor:pointer;
+}
+
+.postTitle h2 {
+    display: inline;
+}
+
+.postTitle .tag-list {
+    position: relative;
+    top: -5px;
+}
+
+.postContent {
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+}
+
+
+/* Blog */
 
 footer {
     color: #FFF;

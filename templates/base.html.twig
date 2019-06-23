@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>{% block title %}David De Lima - Entrepreneur - Développeur web PHP/Symfony et Vue.js {% endblock %}</title>
+        <title>{% block title %}David De Lima - Entrepreneur - Développeur web Freelance php Symfony Vue.js en Bourgogne ou en télétravail{% endblock %}</title>
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content="Développeur web Freelance spécialisé PHP/Symfony et vue.js. Je met mes compétences à votre service pour la réalisation de vos projets web."/>
+        <meta name="description" content="Développeur web Freelance spécialisé php Symfony vue.js. Je met mes compétences à votre service pour la réalisation de vos projets web."/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Roboto+Mono:300"/>
         <link rel="stylesheet" href="{{ asset('build/js/app.css') }}"/>
@@ -18,7 +18,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'UA-78369194-2');
         </script>
     </head>
@@ -46,8 +45,9 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav" v-on:click="close">
+
                         <li class="nav-item ">
-                            <a class="nav-link" id="blog" href="#" >Blog</a>
+                            <a class="nav-link" id="blog" href="{{ path('posts') }}" >Blog</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="#" v-scroll-to="'#services'" >Mes services</a>
@@ -71,7 +71,7 @@
         <!--Main navigation -->
 
         <!-- Main Layout -->
-        <main>
+        <main class="mt-5">
         {% block content %}
         {% endblock %}
         </main>
@@ -85,7 +85,7 @@
                 <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
                     <i class="fab fa-linkedin fa-2x white-text mr-2"></i>
                 </a>
-                <a href="https://github.com/buba71" data-toggle="toolti^p" title="Profil Github">
+                <a href="https://github.com/buba71" data-toggle="tooltip" title="Profil Github">
                     <i class="fab fa-github-square fa-2x white-text"></i>
                 </a>
             </p>
@@ -105,10 +105,10 @@
     </div>
 
 
-        {% block javascripts %}{% endblock %}
+        {% block javascript %}{% endblock %}
 
-    <script src="{{ asset('build/js/vue.js') }}"></script>
-    <script src="{{ asset('build/js/app.js') }}"></script>    
+    <script src="{{ asset('build/js/home.js') }}"></script>
+    <script src="{{ asset('build/js/app.js') }}"></script>
 
 
     </body>

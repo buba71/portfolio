@@ -100,26 +100,19 @@ export default {
 
                     $this.success = true;
                     $this.submitting = false;
-                    console.log('submitting' + $this.submitting);
 
                     Object.keys($this.form).forEach(function(item) {
                         $this.form[item] = '';
                     });
 
                     $this.errors = [];
-
-                    console.log($this.form);
-
                 })
                 .catch(function (error) {
 
                     if (error.response.status === 400) {
                         $this.errors = error.response.data.violations;
-                        console.log($this.errors);
 
                         $this.submitting = false;
-                        console.log('submitting' + $this.submitting);
-
                     }
 
                 });

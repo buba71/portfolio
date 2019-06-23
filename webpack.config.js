@@ -8,8 +8,10 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
-    .addEntry('js/vue', './assets/js/vue.js')
+    .addEntry('js/home', './assets/js/home.js')
     .addEntry('js/app', './assets/js/app.js')
+    .addEntry('js/admin', './assets/js/admin.js')
+    .addEntry('js/blog', './assets/js/blog.js')
     .addEntry('css/main', './assets/css/main.css')
     .addEntry('css/icons','./assets/css/icons.css')
 
