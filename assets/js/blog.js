@@ -1,8 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Moment from 'moment';
 import blogIndex from '../Components/blog/index.vue';
 import PostDetails from '../Components/blog/postDetails.vue';
 import Store from '../store/store.js';
+
+
+// Init locale for Moment.js
+Moment.locale('fr');
+// Format Date display
+Vue.filter('formatDate', function (value) {
+    if (value) {
+        return Moment(String(value)).format('ll');
+    }
+});
+
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;

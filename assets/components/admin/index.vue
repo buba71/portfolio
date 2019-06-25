@@ -31,7 +31,7 @@
                             <tr v-for="post in slotProps.posts">
                                 <th>{{ post.postDate | formatDate }}</th>
                                 <th>{{ post.title }}</th>
-                                <th>{{ post.content }}</th>
+                                <th v-html="post.content"></th>
                                 <th>
                                     <router-link :to="{ name: 'postEdit', params: { id: post.id }}">
                                         <i class="fas fa-edit"></i>

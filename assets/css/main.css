@@ -289,6 +289,7 @@ nav .pagination {
 
 .tag-list  {
     display: inline-flex;
+    margin-bottom: 0;
     padding-left: 0;
     list-style: none;
 }
@@ -301,17 +302,28 @@ nav .pagination {
     margin-right: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    border: 1px solid black;
+    border: 1px solid #C8C8C8;
     cursor:pointer;
+}
+
+.post-item {
+    border-color: #C8C8C8;
 }
 
 .postTitle h2 {
     display: inline;
+    margin-bottom: 0;
 }
 
 .postTitle .tag-list {
     position: relative;
     top: -5px;
+}
+
+.postInfo {
+    font-size: small;
+    color: #B8B8B8;
+    margin-bottom: 10px;
 }
 
 .postContent {

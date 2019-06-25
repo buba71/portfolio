@@ -13,6 +13,9 @@
                             <li class="tag-item d-flex justify-content-center" v-for="tag in post.tags">{{ tag.name }}</li>
                         </ul>
                     </div>
+                    <div class="postInfo">
+                        <i class="far fa-calendar-alt"></i> {{ post.postDate | formatDate}}
+                    </div>
 
                     <div class="postContent" v-html="post.content"></div>
 
