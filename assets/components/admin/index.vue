@@ -126,26 +126,26 @@ export default {
         }
     },
     mounted: function () {
-        this.refresh();
+        this.fetchEmails();
     },
     methods: {
-        refresh: function () {
-            Axios.get('api/messages')
+        fetchEmails: function () {
+            Axios.get(`api/messages`)
                 .then((response) => {
                     this.mails = response.data['hydra:member'];
+                })
+                .catch((error)=> {
+                    console.log(error.response);
                 });
-
         },
         removeMail: function(id) {
-            Axios.delete('api/messages/' + id);
-            this.refresh();
+            Axios.delete(`api/messages/ ${id}`);
+            this.$router.go();
         },
         removePost: function(id) {
-            Axios.delete('api/posts/' + id);
-            this.refresh();
+            Axios.delete(`api/posts/ ${id}`);
+            this.$router.go();                                     // Refresh route
         }
-
     }
-
 }
 </script>

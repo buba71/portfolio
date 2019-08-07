@@ -1,12 +1,13 @@
 <template>
-    <nav aria-label="Page navigation example">
+    <nav id="navbar-pagination" aria-label="Page navigation example">
+
         <ul class="pagination pg-blue">
-            <li class="page-item " v-bind:class="{ disabled : isInfirstPage }" v-on:click="onClickPreviousPage(pageData.previousPage)">
+            <li class="page-item " v-if="isUniquePage" v-bind:class="{ disabled : isInfirstPage }" v-on:click="onClickPreviousPage(pageData.previousPage)">
                 <a class="page-link" tabindex="-1">Précédente</a>
             </li>
             <li class="page-item" v-bind:class="{ active: page.isActive }" v-for="page in pages" v-on:click="onClickPage(page.name)"><a class="page-link">{{ page.name }}</a></li>
 
-            <li class="page-item" v-bind:class="{ disabled: isInLastPage}" v-on:click="onClickNextPage(pageData.nextPage)">
+            <li class="page-item" v-if="isUniquePage" v-bind:class="{ disabled: isInLastPage}" v-on:click="onClickNextPage(pageData.nextPage)">
                 <a class="page-link">Suivante</a>
             </li>
         </ul>
@@ -33,6 +34,9 @@ export default {
             }
             return range;
         },
+        isUniquePage: function() {
+            return this.pageData.totalPage > 1;
+        },
 
         isInfirstPage: function() {
             return this.pageData.currentPage == 1;
@@ -53,7 +57,6 @@ export default {
             this.pageData.currentPage = page.substr(-1, 1);
         },
         onClickPage: function(page) {
-            console.log(this.urlTemplate);
             this.$emit('page-changed', this.urlTemplate + page);
             this.pageData.currentPage = page;
         },

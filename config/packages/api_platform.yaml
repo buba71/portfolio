@@ -1,7 +1,25 @@
 api_platform:
+    swagger:
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header
     mapping:
-        paths: ['%kernel.project_dir%/src/Entity']
+        paths:
+            - '%kernel.project_dir%/src/Entity'                 # default configuration for annotations
+            - '%kernel.project_dir%/config/api_platform'        # yaml directory configuration
+
 
     collection:
         pagination:
             items_per_page: 8 # posts per page
+
+    formats:
+        jsonld:
+            mime_types: ['application/ld+json']
+        json:
+            mime_types: ['application/json']
+        html:
+            mime_types: ['text/html']
+
+

@@ -30,3 +30,14 @@ services:
     App\EventListener\MessageMailListener:
         tags:
             - { name: doctrine.event_listener, event: postPersist }
+
+    # on authentication success set the token Cookie
+    App\EventListener\ApiAuthenticationSuccessListener:
+        arguments: ['%lexik_jwt_authentication.token_ttl%']
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccess }
+
+    # on authentication failure( token not found) custom the response
+    App\EventListener\ApiNotAutorizedListener:
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_not_found, method: onNotAuthorizedApiEndPoint }

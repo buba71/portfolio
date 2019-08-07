@@ -10,6 +10,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * Class CreateAdminUserCommand
+ * @package App\Command
+ */
 class CreateAdminUserCommand extends Command
 {
     protected static $defaultName = 'app:create-admin';
@@ -18,6 +22,11 @@ class CreateAdminUserCommand extends Command
 
     private $encoder;
 
+    /**
+     * CreateAdminUserCommand constructor.
+     * @param EntityManagerInterface $entityManager
+     * @param UserPasswordEncoderInterface $userPasswordEncoder
+     */
     public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $userPasswordEncoder)
     {
         $this->entitymanager = $entityManager;
@@ -25,7 +34,10 @@ class CreateAdminUserCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    /**
+     * Create arguments command to enter
+     */
+    protected function configure():void
     {
         $this
             ->setDescription('Creates a new user admin.')
@@ -33,6 +45,12 @@ class CreateAdminUserCommand extends Command
             ->addArgument('userPassword', InputArgument::REQUIRED, 'The user password');
     }
 
+    /**
+     * Set a new Admin user in BDD
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|void|null
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $userAdmin = new User();
@@ -43,7 +61,6 @@ class CreateAdminUserCommand extends Command
 
         $this->entitymanager->persist($userAdmin);
         $this->entitymanager->flush();
-
 
         $output->writeln('User email: ' . $input->getArgument('userEmail'));
         $output->writeln('user password: ' . $input->getArgument('userPassword'));

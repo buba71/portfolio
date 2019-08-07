@@ -1,12 +1,18 @@
 <template>
     <div>
+        <!-- Navigation -->
+        <bread-crumb v-if="hasSearchTag"></bread-crumb>
+        <h1 id="blog-title" class="d-flex justify-content-center"style="color: #8c8c8c; margin-bottom: 50px">Blog david-de-lima.tech</h1>
+
+        <!-- Display Tags -->
         <tag-search></tag-search>
-        <h1>Liste des articles</h1>
+
+        <!-- Posts list -->
         <posts-list>
             <template v-slot:default="slotProps">
 
                 <article class="card post-item" v-for="post in slotProps.posts">
-                    <div class="postTitle">
+                    <div class="title-box">
                         <h2>{{ post.title }}</h2>
 
                         <ul class="tag-list" >
@@ -29,15 +35,21 @@
             </template>
 
         </posts-list>
-    </div>
 
+        <!-- Posts list -->
+    </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 import PostsList from './postsList';
 import TagSearch from './tagSearch';
+import BreadCrumb from '../navigation/breadCrumb.vue';
 
 export default {
     name: 'blogIndex',
-    components: { PostsList, TagSearch }
+    components: { PostsList, TagSearch, BreadCrumb },
+    computed: {
+        ...mapGetters(['hasSearchTag'])
+    },
 }
 </script>

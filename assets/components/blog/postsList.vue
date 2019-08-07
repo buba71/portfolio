@@ -6,8 +6,8 @@
     </div>
 </template>
 <script>
-
-import Pagination from './pagination.vue';
+import { mapGetters } from 'vuex';
+import Pagination from '../pagination/pagination.vue';
 
 export default {
     name: 'postsList',
@@ -18,27 +18,24 @@ export default {
         }
     },
     methods: {
+        // Load posts list on current page.
         loadPosts: function(page) {
             console.log(page);
             this.$store.dispatch("loadPosts", page);
         }
-
-
     },
-
     computed: {
-        posts: function() {
-            return this.$store.state.posts;
-        },
-        pageData: function() {
-            return this.$store.state.pageData;
-        }
+        // Vuex  getters helper for posts and pageData state.
+        ...mapGetters([
+            'posts',
+            'pageData'
+        ])
     },
     mounted: function() {
+        // Initialise posts list on page number 1.
         this.$store.dispatch("loadPosts", 'api/posts?page=1');
 
     }
-
 }
 
 </script>

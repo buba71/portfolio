@@ -1,11 +1,11 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
+import HomeIndex from '../Components/home/home.vue';
+import NotFound from '../Components/notfound/notFound.vue';
 import VueScrollTo from 'vue-scrollto';
 import CheckView from 'vue-check-view';
-import language from '../components/skills/language';
-import framework from '../components/skills/framework';
-import tool from '../components/skills/tool';
-import scrollButton from '../components/navigation/scrollButton';
-import ContactForm from '../components/contact/contactForm';
+
+Vue.use(VueRouter);
 
 Vue.use(
     VueScrollTo,
@@ -26,43 +26,51 @@ Vue.use(
 
 Vue.use(CheckView);
 
+Vue.config.productionTip = false;
 
-let app = new Vue(
-            {
-                el: '#app',
-                delimiters: [ '${', '}'],
-                components: { language, framework, tool, scrollButton, ContactForm },
-                data: {
-                    service: false,
-                    skill: false,
-                    preloader: true,
-                },
-                methods: {
-                    viewServiceHandler(e) {
-                        if (e.type === 'enter') {
-                            this.service = true;
-                        }
-                    },
-                    viewSkillsHandler(e) {
-                        if (e.type === 'enter') {
-                            this.skill = true;
-                        }
-                    },
-                    preloading() {
-                        let v = this;
-                        setTimeout(function () {
-                            v.preloader = false;
-                        },3000)
-                    },
-                    // close navBar onclick in mobile view
-                    close() {
-                        let closeMenu = $('#navbarNav');
-                        closeMenu.removeClass('show');
-                    }
-                },
-                mounted: function () {
-                    this.preloading();
-                }
+const routes = [
+    {
+        path: '/',
+        name: 'home',
+        component: HomeIndex
+    },
+    {
+        path: '/404',
+        component: NotFound
+    },
+    {
+        path: '*',
+        redirect: '/404'
+    },
+];
 
+const router = new VueRouter({routes});
+
+
+let V = new Vue(
+    {
+        el: '#app',
+        delimiters: [ '${', '}'],
+        router,
+        data: {
+            preloader: true
+        },
+        methods: {
+            // close navBar onclick in mobile view
+            close() {
+                let closeMenu = $('#navbarNav');
+                closeMenu.removeClass('show');
+            },
+            preloading() {
+                let v = this;
+                setTimeout(function () {
+                    v.preloader = false;
+                },3000)
             }
-        );
+        },
+
+        mounted: function () {
+            this.preloading();
+        }
+    }
+);

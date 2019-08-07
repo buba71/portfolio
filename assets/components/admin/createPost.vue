@@ -4,12 +4,14 @@
 
         <form v-on:submit.prevent="createPost">
             <div class="form-group">
+                <label></label>
                 <input type="text" class="form-control" v-model="post.title">
             </div>
             <div class="form-group">
                 <ckeditor :editor="editor" v-model="post.content" tag-name="textarea"></ckeditor>
             </div>
             <div class="form-group">
+                <label></label>
                 <input type="text" class="form-control" v-model="post.tags">
             </div>
             <button type="submit" class="btn btn-default">Valider</button>
@@ -40,7 +42,7 @@ export default {
         // create new post
         createPost: function() {
             let tagsArray = this.inputTagsToArray(this.post.tags);
-            Axios.post('api/posts', { title: this.post.title, content: this.post.content, tags: tagsArray } )
+            Axios.post(`api/posts`, { title: this.post.title, content: this.post.content, tags: tagsArray } )
                 // Redirect to postList and display success msg or error msg
                 .then((response) => {
                     console.log(response.data);
@@ -49,7 +51,7 @@ export default {
                     console.log(error.response.data);
                 })
         },
-        // Convert Input string tags into Array of objects
+        // Convert Input string tags into Array of objects (Data transformer).
         inputTagsToArray: function(tags) {
 
             // Tag constructor

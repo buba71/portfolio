@@ -39,13 +39,15 @@ class mailSender
                 $content . '<br/>');
 
         // if error mailling, throw exception
-       if(!$this->mailer->send($newMail, $failures)) {
-           throw new \Swift_TransportException('Une erreur s\'est produite lors de l\'envoi de ce mail : ' . $mail . ' , /Erreur : ' . $failures);
+        if (!$this->mailer->send($newMail, $failures)) {
+            throw new \Swift_TransportException(
+                'Une erreur s\'est produite lors de l\'envoi de ce mail : ' . $mail . ' , /Erreur : ' . $failures
+            );
 
-           // Logging error
-           $this->logger->critical('Une erreur s\'est produite lors de l\'envoi de ce mail : ' . $mail . ' , /Erreur : ' . $failures);
+            // Logging error
+            $this->logger->critical('Une erreur s\'est produite lors de l\'envoi de ce mail : ' . $mail . ' , /Erreur : ' . $failures);
 
-       };
+        };
 
         $this->logger->info('Message from : ' . $mail . ' was sent');
     }

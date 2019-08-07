@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Moment from 'moment';
 import blogIndex from '../Components/blog/index.vue';
 import PostDetails from '../Components/blog/postDetails.vue';
+import NotFound from '../Components/notfound/notFound.vue';
 import Store from '../store/store.js';
 
 
@@ -17,6 +18,7 @@ Vue.filter('formatDate', function (value) {
 
 
 Vue.use(VueRouter);
+
 Vue.config.productionTip = false;
 
 const routes = [
@@ -24,23 +26,37 @@ const routes = [
         path: '/',
         name: 'posts',
         component: blogIndex
+        //children: [
+            //{
+                //path: '/:id/:slug',
+                //name: 'post',
+                //component: PostDetails
+            //}
+        // ]
     },
     {
         path: '/:id/:slug',
         name: 'post',
         component: PostDetails
-    }
+    },
+    {
+        path: '/404',
+        component: NotFound
+    },
+    {
+        path: '*',
+        redirect: '/404'
+    },
     ];
 
-const router = new VueRouter({routes});
+    const router = new VueRouter({
+        routes
+    });
 
-let V = new Vue(
-    {
-        el:'#app',
-        store: Store,
-        router,
-        data: {
-
+    let V = new Vue(
+        {
+            el:'#app',
+            store: Store,
+            router,
         }
-    }
-)
+    );

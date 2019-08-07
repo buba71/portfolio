@@ -28,6 +28,7 @@ class PostCheckUniqueTagSubscriber implements EventSubscriberInterface
     }
 
     /**
+     * Check if input tags already exists in BDD
      * @param GetResponseForControllerResultEvent $event
      */
     public function tagsFilter(GetResponseForControllerResultEvent $event)

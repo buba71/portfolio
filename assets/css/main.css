@@ -30,6 +30,18 @@
     font-style: normal;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding-bottom: 10em;
+    box-sizing: border-box;
+}
+
 #logo {
     font-family: "Special Elite";
 }
@@ -99,7 +111,7 @@ section {
 
 #introduction {
     margin-top: 50px;
-    font-family: "Roboto";
+    font-family: 'Arial';
     font-size: medium;
     color: #FFF;
 }
@@ -268,13 +280,13 @@ section {
 /* Blog */
 
 
-nav .pagination {
-    background-color: #FFF;
+#navbar-pagination, .breadcrumb-nav {
+    background-color: transparent;
 }
 
 .navControl {
     margin-top: 100px;
-    margin-bottom: 200px;
+    margin-bottom: 150px;
 }
 
 .navControl i, .fullPost i, .fullPost span {
@@ -302,20 +314,24 @@ nav .pagination {
     margin-right: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    border: 1px solid #C8C8C8;
+    border: 1px solid;
     cursor:pointer;
+}
+
+#tag-content {
+    margin-bottom: 50px;
 }
 
 .post-item {
     border-color: #C8C8C8;
 }
 
-.postTitle h2 {
+.title-box h2 {
     display: inline;
     margin-bottom: 0;
 }
 
-.postTitle .tag-list {
+.title-box .tag-list {
     position: relative;
     top: -5px;
 }
@@ -335,6 +351,9 @@ nav .pagination {
 /* Blog */
 
 footer {
+    position: absolute;
+    left: 0;
+    right: 0;
     color: #FFF;
     background-color: #2BA5D9;
     margin-top: 100px;
