@@ -7,7 +7,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex';
-import Pagination from '../pagination/pagination.vue';
+import Pagination from '../navigation/pagination.vue';
 
 export default {
     name: 'postsList',
@@ -20,7 +20,6 @@ export default {
     methods: {
         // Load posts list on current page.
         loadPosts: function(page) {
-            console.log(page);
             this.$store.dispatch("loadPosts", page);
         }
     },

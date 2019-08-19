@@ -13,7 +13,8 @@ export default {
             template: ''
         },
         hasSearchTag: false,
-        pickedTag: ''
+        pickedTag: '',
+        successMsg: ''
     },
     getters: {
         // Return posts list.
@@ -31,25 +32,27 @@ export default {
         // Return the Tag searched.
         pickedTag: function (state) {
             return state.pickedTag;
+        },
+        // Return the message to display in any action (editPost, createPost).
+        successMsg: function (state) {
+            return state.successMsg;
         }
 
     },
     actions: {
-        loadPosts: function ({commit}, page) {
-            Axios.get(page)
+        loadPosts: function ({commit}, url) {
+            Axios.get(url)
                 .then((response) => {
 
                     let apiPosts = response.data["hydra:member"];
                     // if number of pages > 1, has response.Data["hydra:view']
                     if (response.data["hydra:view"]) {
-                        console.log('hasHydraView!');
                         let apiPageData = response.data["hydra:view"];
                         commit('SET_PAGE_DATA', apiPageData);
                     } else {
                         let apiPageData = [];
                         commit('SET_PAGE_DATA', apiPageData);
                     }
-                    console.log(response);
 
                     // execute mutations
                     commit('SET_POSTS', apiPosts);
@@ -59,7 +62,7 @@ export default {
                 });
         },
         loadPostsByTag: function ({commit}, tag) {
-            Axios.get('api/posts?tags.name=' + tag + '&page=1')
+            Axios.get(`api/posts?tags.name=${tag}&page=1`)
                 .then((response) => {
 
                     // Init current page on page 1 to pagination component
@@ -68,7 +71,6 @@ export default {
                     // Set data api
                     let apiPosts = response.data["hydra:member"];
                     let apiPageData = response.data["hydra:view"];
-                    console.log(response.data);
 
                     // Make mutations data posts and data page(pagination)
                     commit('SET_POSTS', apiPosts);
@@ -80,7 +82,11 @@ export default {
                 .catch((error) => {
                     console.log(error.response.data);
                 })
+        },
+        displayMsg: function ({commit}, payload) {
+            commit('SET_SUCCESS_MSG', payload);
         }
+
     },
     mutations: {
         SET_POSTS: function (state, apiPosts) {
@@ -99,7 +105,6 @@ export default {
                 state.pageData.totalPage = 1;
             }
 
-            console.log("pageData", state.pageData);
         },
         ON_SEARCH_TAG: function (state) {
             state.hasSearchTag = true;
@@ -109,6 +114,9 @@ export default {
         },
         GET_PICKED_TAG: function (state, tag) {
             state.pickedTag = tag;
+        },
+        SET_SUCCESS_MSG: function (state, msg) {
+            state.successMsg = msg;
         }
 
 

@@ -22,6 +22,7 @@
 export default {
     name: 'BreadCrumb',
     props: ['postTitle'],
+    // Use of mapGetters for v2.
     computed: {
         pickedTag: function () {
             return this.$store.getters.pickedTag;

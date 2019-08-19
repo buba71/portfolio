@@ -348,7 +348,20 @@ section {
 }
 
 
+
 /* Blog */
+
+/* Admin */
+
+.post-card {
+    margin: auto;
+    width: 70%;
+    padding: 20px
+}
+
+#main-content {
+    margin-top: 150px;
+}
 
 footer {
     position: absolute;

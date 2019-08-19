@@ -335,7 +335,7 @@
 
                                 <!-- card image -->
                                 <img class="card-img-top" v-bind:src="'../../images/billetterie.png'" alt="louvre booking website" >
-                                <a href="#">
+                                <a href="https://github.com/buba71/OCLouvreBooking">
                                     <div class="mask rgba-teal-strong d-flex align-items-center">
                                         <!-- Overlay content -->
                                         <div class="project-description">
@@ -383,7 +383,7 @@
                                 <!-- card image -->
 
                                 <img class="card-img-top" v-bind:src="'../../images/gallery.png'" alt="photographer website" >
-                                <a href="#">
+                                <a href="https://github.com/buba71/photographer_symfony">
                                     <div class="mask rgba-teal-strong d-flex align-items-center">
                                         <!-- Overlay content -->
                                         <div class="project-description">
@@ -432,7 +432,7 @@
                                 <!-- card image -->
 
                                 <img class="card-img-top" v-bind:src="'../../images/portfolio.png'" alt="portfolio website" >
-                                <a href="#">
+                                <a href="https://github.com/buba71/portfolio/tree/master">
                                     <div class="mask rgba-teal-strong d-flex align-items-center">
                                         <!-- Overlay content -->
                                         <div class="project-description">
@@ -524,11 +524,11 @@
 </template>
 <script type="text/javascript">
 
-import language from '../skills/language';
-import framework from '../skills/framework';
-import tool from '../skills/tool';
-import scrollButton from '../navigation/scrollButton';
-import ContactForm from '../contact/contactForm';
+import language from '../../components/skills/language';
+import framework from '../../components/skills/framework';
+import tool from '../../components/skills/tool';
+import scrollButton from '../../components/navigation/scrollButton';
+import ContactForm from '../../components/contact/contactForm';
 
 
 

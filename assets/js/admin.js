@@ -5,10 +5,10 @@ import Axios from 'axios';
 // Manage Dates
 import Moment from 'moment';
 
-import adminPanel  from '../Components/admin/index.vue';
-import EditPost from '../Components/admin/editPost.vue';
-import CreatePost from '../Components/admin/CreatePost.vue';
-import Login from '../Components/admin/login.vue';
+import adminPanel  from '../views/admin/index.vue';
+import EditPost from '../views/admin/editPost.vue';
+import CreatePost from '../views/admin/createPost.vue';
+import Login from '../components/security/login.vue';
 import NotFound from '../Components/notfound/notFound.vue';
 import Store from '../store/store.js';
 
@@ -88,8 +88,14 @@ const routes = [
             el: '#app',
             router,
             store: Store,
+            delimiters: [ '${', '}'],
             data: {
 
+            },
+            computed: {
+                message: function () {
+                    return this.$store.getters.successMsg;
+                }
             }
         }
     );

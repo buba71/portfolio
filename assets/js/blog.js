@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Moment from 'moment';
-import blogIndex from '../Components/blog/index.vue';
-import PostDetails from '../Components/blog/postDetails.vue';
+import blogIndex from '../views/blog/index.vue';
+import PostDetails from '../views/blog/postDetails.vue';
 import NotFound from '../Components/notfound/notFound.vue';
 import Store from '../store/store.js';
 

@@ -5,7 +5,7 @@
             <li class="page-item " v-if="isUniquePage" v-bind:class="{ disabled : isInfirstPage }" v-on:click="onClickPreviousPage(pageData.previousPage)">
                 <a class="page-link" tabindex="-1">Précédente</a>
             </li>
-            <li class="page-item" v-bind:class="{ active: page.isActive }" v-for="page in pages" v-on:click="onClickPage(page.name)"><a class="page-link">{{ page.name }}</a></li>
+            <li class="page-item" v-if="isUniquePage" v-bind:class="{ active: page.isActive }" v-for="page in pages" v-on:click="onClickPage(page.name)"><a class="page-link">{{ page.name }}</a></li>
 
             <li class="page-item" v-if="isUniquePage" v-bind:class="{ disabled: isInLastPage}" v-on:click="onClickNextPage(pageData.nextPage)">
                 <a class="page-link">Suivante</a>

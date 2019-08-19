@@ -36,7 +36,7 @@ class PostCheckUniqueTagSubscriber implements EventSubscriberInterface
         $post = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();
 
-        if (!$post instanceof Post || Request::METHOD_POST !== $method) {
+        if (!$post instanceof Post || Request::METHOD_DELETE == $method) {
             return;
         }
 
@@ -51,17 +51,5 @@ class PostCheckUniqueTagSubscriber implements EventSubscriberInterface
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

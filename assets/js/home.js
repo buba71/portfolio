@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HomeIndex from '../Components/home/home.vue';
+import HomeIndex from '../views/home/home.vue';
 import NotFound from '../Components/notfound/notFound.vue';
 import VueScrollTo from 'vue-scrollto';
 import CheckView from 'vue-check-view';

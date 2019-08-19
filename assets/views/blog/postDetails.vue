@@ -10,7 +10,7 @@
 <script>
 
 import Axios from 'axios';
-import BreadCrumb from "../navigation/breadCrumb";
+import BreadCrumb from "../../components/navigation/breadCrumb";
 export default {
     name: 'PostDetails',
     components: {BreadCrumb},

@@ -6,14 +6,14 @@
                 <span>Vos identifiants sont erronés.</span>
             </div>
             <div class="md-form">
-                <label for="login">login</label>
+                <label for="login">Identifiant</label>
                 <input type="text" id="login" v-model="username" class="form-control" required >
             </div>
             <div class="md-form">
-                <label for="password">password</label>
+                <label for="password">Mot de passe</label>
                 <input type="password" id="password" v-model="password" class="form-control" required >
             </div>
-            <button type="submit" class="btn btn-info">Valider</button>
+            <button type="submit" class="btn btn-primary btn-md">Valider</button>
         </form>
     </div>
 </template>
@@ -24,8 +24,8 @@ export default {
     name: 'login',
     data: () => {
         return {
-            username: 'd.delima@outlook.fr',
-            password: 'Yqpkaqrv1',
+            username: '',
+            password: '',
             error: false
         }
     },
@@ -38,7 +38,6 @@ export default {
                 this.$store.commit('AUTH_ADMIN', data.data.isLogin); // Payload: isLogin state.
                 this.$router.push('/');
             } catch (error) {
-                console.log(error.response.status);
                 if(error.response.status === 401) {
                     this.error = true;                              // Bad credentials.
                 } else {

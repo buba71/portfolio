@@ -18,7 +18,7 @@
             <div class="tab-pane fade show active mr-5 ml-5" id="blog-admin" role="tabpanel" aria-labelledby="home-tab">
                 <posts-list>
                     <template v-slot:default="slotProps">
-                        <table class="table table-striped mt-5">
+                        <table v-if="slotProps.posts.length > 0 " class="table table-striped mt-5">
                             <thead class="info-color-dark">
                             <tr>
                                 <th scope="col">Date</th>
@@ -30,7 +30,7 @@
                             <tbody>
                             <tr v-for="post in slotProps.posts">
                                 <th>{{ post.postDate | formatDate }}</th>
-                                <th>{{ post.title }}</th>
+                                <th>{{ post.title }}, {{ post.id }}</th>
                                 <th v-html="post.content"></th>
                                 <th>
                                     <router-link :to="{ name: 'postEdit', params: { id: post.id }}">
@@ -56,8 +56,8 @@
                                                     Voulez-vous vraiment supprimer cet article ?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <button type="button" class="btn btn-primary" v-on:click="removePost(post.id)">valider</button>
+                                                    <button type="button" class="btn btn-secondary btn-md" data-dismiss="modal">Annuler</button>
+                                                    <button type="button" class="btn btn-primary btn-md" data-dismiss="modal" v-on:click="removePost(post.id)">valider</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,19 +68,21 @@
                             </tbody>
                         </table>
 
+                        <div v-else class="mt-4 mb-4">Vous n'avez pas encore rédigé d'article.</div>
+
                     </template>
 
                 </posts-list>
 
                 <router-link :to="{ name: 'postCreate'}">
-                    <button class="btn btn-info btn-sm"> Ajouter un article</button>
+                    <button class="btn btn-primary btn-sm"> Ajouter un article</button>
                 </router-link>
             </div>
             <!-- Posts admin -->
 
             <!-- Mails admin -->
-            <div class="tab-pane fade d-flex justify-content-center" id="mail-admin" role="tabpanel" aria-labelledby="profile-tab">
-                <table class="table table-striped mt-5" style="width: 60%" >
+            <div class="tab-pane fade mr-5 ml-5" id="mail-admin" role="tabpanel" aria-labelledby="profile-tab">
+                <table v-if="mails.length > 0" class="table table-striped mt-5">
                     <thead class="black info-color">
                     <tr>
                         <th scope="col">Envoyé le</th>
@@ -106,6 +108,7 @@
                     </tr>
                     </tbody>
                 </table>
+                <div v-else class="mt-4"> Vous n'avez pas de courrier.</div>
             </div>
             <!-- Mails admin -->
         </div>
@@ -114,7 +117,7 @@
 </template>
 <script>
 import Axios from 'axios';
-import PostsList from '../blog/postsList.vue';
+import PostsList from '../../components/blog/postsList.vue';
 
 export default {
     name: 'adminPanel',
@@ -139,13 +142,20 @@ export default {
                 });
         },
         removeMail: function(id) {
-            Axios.delete(`api/messages/ ${id}`);
-            this.$router.go();
+            Axios.delete(`api/messages/ ${id}`)
+                .then(() => {
+                    this.$store.dispatch('displayMsg', 'Courrier supprimé.')
+                    this.fetchEmails();
+                });
+
         },
         removePost: function(id) {
-            Axios.delete(`api/posts/ ${id}`);
-            this.$router.go();                                     // Refresh route
-        }
+             Axios.delete(`api/posts/ ${id}`)
+                .then(() => {
+                    this.$store.dispatch('displayMsg', 'Article supprimé.');
+                    this.$store.dispatch("loadPosts", 'api/posts?page=1');                                     // Refresh post list.
+                });
+        },
     }
 }
 </script>

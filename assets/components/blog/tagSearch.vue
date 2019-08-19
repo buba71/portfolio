@@ -35,6 +35,7 @@ export default {
             return tagColor;
         },
          applyStyleOnHover: function(index) {
+            // Looking for the tag who have been over with index.
             for(let i = 0; i < this.tags.length; i++) {
                 if(index === i) {
                     let elementList = document.getElementById(i);
