@@ -8,8 +8,16 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker;
 
+/**
+ * Class FakerFixtures
+ * @package App\DataFixtures
+ */
 class FakerFixtures extends Fixture
 {
+    /**
+     * Create fake data Fixtures from faker
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');

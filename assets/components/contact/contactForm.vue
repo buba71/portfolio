@@ -87,8 +87,7 @@ export default {
         submitMail: function () {
             let $this = this;
             this.submitting = true;
-            console.log('submitting' + this.submitting);
-
+            // fetch emails
             axios.post('/api/messages', {
                 senderFirstName: this.form.firstName,
                 senderLastName: this.form.lastName,
@@ -100,7 +99,7 @@ export default {
 
                     $this.success = true;
                     $this.submitting = false;
-
+                    // Delete form
                     Object.keys($this.form).forEach(function(item) {
                         $this.form[item] = '';
                     });
@@ -108,6 +107,7 @@ export default {
                     $this.errors = [];
                 })
                 .catch(function (error) {
+                    console.log(error.response);
 
                     if (error.response.status === 400) {
                         $this.errors = error.response.data.violations;

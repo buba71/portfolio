@@ -1,4 +1,3 @@
-
 var Encore = require('@symfony/webpack-encore');
 
 Encore
@@ -21,6 +20,10 @@ Encore
     .autoProvidejQuery()
     // Enable sass.
     .enableSassLoader()
-    .autoProvidejQuery()
+    // configure Babel
+    .configureBabel(function (babelConfig) {
+        babelConfig.presets = ['es2015', 'stage-2'];
+        babelConfig.plugins = ['transform-runtime'];
+    });
 
 module.exports = Encore.getWebpackConfig();

@@ -24,17 +24,15 @@
     <body>
 
     <div id="app">
-
         <!-- Preloader -->
-        <!--
+
         <div id="preloader" v-if="preloader">
             <img src="{{ asset('images/preloader.gif') }}" alt="preload">
         </div>
-        -->
+
         <!-- Preloader -->
 
-        <!-- Ajouter le "v-else" dans wrapper si preloader -->
-        <div id="app-wrapper">
+        <div v-else id="app-wrapper">
         <!-- Main navigation -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -47,7 +45,7 @@
                     <ul class="navbar-nav" v-on:click="close">
 
                         <li class="nav-item ">
-                            <a class="nav-link" id="blog" href="{{ path('posts') }}" >Blog</a>
+                            <a class="nav-link" id="blog" href="{{ path('posts') }}" ><strong>Blog</strong></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="#" v-scroll-to="'#services'" >Mes services</a>
@@ -101,7 +99,6 @@
         <!-- Footer -->
 
     </div>
-
     </div>
 
 

@@ -28,6 +28,7 @@ class PostCheckUniqueTagSubscriber implements EventSubscriberInterface
     }
 
     /**
+     * Check if input tags already exists in BDD
      * @param GetResponseForControllerResultEvent $event
      */
     public function tagsFilter(GetResponseForControllerResultEvent $event)
@@ -35,7 +36,7 @@ class PostCheckUniqueTagSubscriber implements EventSubscriberInterface
         $post = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();
 
-        if (!$post instanceof Post || Request::METHOD_POST !== $method) {
+        if (!$post instanceof Post || Request::METHOD_DELETE == $method) {
             return;
         }
 
@@ -50,17 +51,5 @@ class PostCheckUniqueTagSubscriber implements EventSubscriberInterface
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

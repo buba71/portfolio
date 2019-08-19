@@ -58,7 +58,7 @@ class Post
     private $slug;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", cascade={"persist", "remove"})
      * @Groups({"tags"})
      */
     private $tags;

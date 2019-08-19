@@ -1,0 +1,53 @@
+# resources
+
+App\Entity\Message:
+    collectionOperations:
+        get:
+            method: 'GET'
+            access_control: 'is_granted("ROLE_ADMIN")'
+        post:
+            method: 'POST'
+    itemOperations:
+        get:
+            method: 'GET'
+            access_control: 'is_granted("ROLE_ADMIN")'
+        put:
+            method: 'PUT'
+            access_control: 'is_granted("ROLE_ADMIN")'
+        delete:
+            method: 'DELETE'
+            access_control: 'is_granted("ROLE_ADMIN")'
+
+App\Entity\Post:
+    collectionOperations:
+        get:
+            method: 'GET'
+        post:
+            method: 'POST'
+            access_control: 'is_granted("ROLE_ADMIN")'
+    itemOperations:
+        get:
+            method: 'GET'
+        put:
+            method: 'PUT'
+            access_control: 'is_granted("ROLE_ADMIN")'
+        delete:
+            method: 'DELETE'
+            access_control: 'is_granted("ROLE_ADMIN")'
+
+App\Entity\Tag:
+    collectionOperations:
+        get:
+            method: 'GET'
+        post:
+            method: 'POST'
+            access_control: 'is_granted("ROLE_ADMIN")'
+    itemOperations:
+        get:
+            method: 'GET'
+        put:
+            method: 'PUT'
+            access_control: 'is_granted("ROLE_ADMIN")'
+        delete:
+            method: 'DELETE'
+            access_control: 'is_granted("ROLE_ADMIN")'
