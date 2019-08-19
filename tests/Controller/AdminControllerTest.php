@@ -20,11 +20,5 @@ class AdminControllerTest extends WebTestCase
         $form['password'] = 'yqpkaqrv';
 
         $crawler = $client->submit($form);
-
-
-
-        echo ($client->getResponse()->getContent());
-
-
     }
 }

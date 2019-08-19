@@ -12,8 +12,5 @@ class SecurityControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'd.delima@outlook.fr',
             'PHP_AUTH_PW'   => 'yqpkaqrv',
         ]);
-
-        echo $client->getResponse()->getContent();
-
     }
 }
