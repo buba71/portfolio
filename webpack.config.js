@@ -1,4 +1,4 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 
 Encore
     .setOutputPath('public/build/')
@@ -24,6 +24,17 @@ Encore
     .configureBabel(function (babelConfig) {
         babelConfig.presets = ['es2015', 'stage-2'];
         babelConfig.plugins = ['transform-runtime'];
-    });
+    })
+    // Enable EsLint
+    .addLoader({
+        test: /\.js$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        options: {
+            fix: true
+        }
+    })
+;
 
 module.exports = Encore.getWebpackConfig();

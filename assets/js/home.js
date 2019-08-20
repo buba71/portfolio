@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import $ from 'jquery';
 import VueRouter from 'vue-router';
 import HomeIndex from '../views/home/home.vue';
 import NotFound from '../Components/notfound/notFound.vue';
@@ -42,35 +43,35 @@ const routes = [
         path: '*',
         redirect: '/404'
     },
-];
+    ];
 
-const router = new VueRouter({routes});
+    const router = new VueRouter({routes});
 
 
-let V = new Vue(
-    {
-        el: '#app',
-        delimiters: [ '${', '}'],
-        router,
-        data: {
-            preloader: true
-        },
-        methods: {
-            // close navBar onclick in mobile view
-            close() {
-                let closeMenu = $('#navbarNav');
-                closeMenu.removeClass('show');
+    new Vue(
+        {
+            el: '#app',
+            delimiters: [ '${', '}'],
+            router,
+            data: {
+                preloader: true
             },
-            preloading() {
-                let v = this;
-                setTimeout(function () {
-                    v.preloader = false;
-                },3000)
-            }
-        },
 
-        mounted: function () {
-            this.preloading();
+            mounted: function () {
+                this.preloading();
+            },
+            methods: {
+                // close navBar onclick in mobile view
+                close() {
+                    let closeMenu = $('#navbarNav');
+                    closeMenu.removeClass('show');
+                },
+                preloading() {
+                    let v = this;
+                    setTimeout(function () {
+                        v.preloader = false;
+                    },3000)
+                }
+            }
         }
-    }
-);
+    );

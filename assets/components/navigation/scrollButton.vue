@@ -1,6 +1,6 @@
 <template>
     <transition name="scrollButton">
-        <a href="#" v-scroll-to="'#logo'">
+        <a v-scroll-to="'#logo'" href="#" >
             <i class="fa fa-angle-up fa-3x fa-inverse" id="scroll-return"></i>
         </a>
     </transition>
