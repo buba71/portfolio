@@ -53,7 +53,7 @@ const routes = [
         routes
     });
 
-    let V = new Vue(
+    new Vue(
         {
             el:'#app',
             store: Store,
