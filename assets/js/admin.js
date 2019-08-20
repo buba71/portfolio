@@ -83,7 +83,7 @@ const routes = [
     });
 
 
-    let V = new Vue(
+    new Vue(
         {
             el: '#app',
             router,

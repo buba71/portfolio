@@ -95,7 +95,7 @@ export default {
                 messageObj: this.form.messageObj,
                 content: this.form.content
             })
-                .then(function (response) {
+                .then(function () {
 
                     $this.success = true;
                     $this.submitting = false;
