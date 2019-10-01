@@ -9,7 +9,7 @@ class ApiControllerTest extends WebTestCase
 {
     protected $client;
 
-    protected function setUp ()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->client = static::createClient();
@@ -55,13 +55,25 @@ class ApiControllerTest extends WebTestCase
             'senderLastName'  => 'De Lima',
             'senderMail'      => 'd.delima@outlook.fr',
             'messageObj'      => 'none',
-            'content'         => 'Voici mon premier message issu de mon test fonctionnel'
+            'content'         => 'Voici mon premier message issue de mon test fonctionnel'
         ];
 
         $response = $this->request('POST', '/api/messages', $data);
 
         $this->assertEquals(201, $response->getStatusCode());
         $this->assertEquals('application/ld+json; charset=utf-8', $response->headers->get('Content-Type'));
-
     }
+
+    /**
+     * @return void
+     * Test Response from get Posts api.
+     */
+    public function testRetrievePostsList(): void
+    {
+        $response = $this->request('GET', '/api/posts');
+
+        static::assertEquals(200, $response->getStatusCode());
+        static::assertEquals('application/ld+json; charset=utf-8', $response->headers->get('Content-Type'));
+    }
+
 }

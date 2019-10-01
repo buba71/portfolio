@@ -1,23 +1,19 @@
 <?php
 
-namespace App\tests;
+namespace App\tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AdminControllerTest extends WebTestCase
 {
-    public function testAdminLogin()
+    /**
+     * @return void
+     */
+    public function testIndex(): void
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/login');
+        $client =static::createClient();
+        $client->request('GET', '/admin');
 
-
-
-        $form = $crawler->selectButton('Sign in')->form();
-
-        $form['email'] = 'd.delima@outlook.fr';
-        $form['password'] = 'yqpkaqrv';
-
-        $crawler = $client->submit($form);
+        static::assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }

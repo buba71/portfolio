@@ -57,6 +57,7 @@ export default {
     },
     mounted: async function() {
         let { data } = await Axios.get('api/tags');
+            console.log(data);
             this.tags = data["hydra:member"];
     }
 }

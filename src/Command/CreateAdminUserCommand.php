@@ -41,7 +41,7 @@ class CreateAdminUserCommand extends Command
     {
         $this
             ->setDescription('Creates a new user admin.')
-            ->addArgument('userEmail', InputArgument::REQUIRED, 'The user email adresse')
+            ->addArgument('userEmail', InputArgument::REQUIRED, 'The user email address')
             ->addArgument('userPassword', InputArgument::REQUIRED, 'The user password');
     }
 
