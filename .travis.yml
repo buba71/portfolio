@@ -24,4 +24,5 @@ install:
 - php bin/console doctrine:schema:create
 
 script:
+  - yarn jest
   - php bin/phpunit
