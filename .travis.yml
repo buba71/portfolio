@@ -11,6 +11,8 @@ sudo: false
 services: postgresql
 
 before_install:
+- sudo rm -rf ~/.nvm - curl -sL "https://deb.nodesource.com/setup_10.15.1 | sudo -E bash -
+- sudo apt-get install -y nodejs
 - composer self-update
 
 install:
