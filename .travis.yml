@@ -19,6 +19,7 @@ before_install:
 
 install:
 - composer install
+- yarn install
 - cp .env.dist .env
 - php bin/console doctrine:database:create
 - php bin/console doctrine:schema:create
