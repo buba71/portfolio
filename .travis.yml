@@ -1,8 +1,9 @@
 language: php
 php:
-  - '7.2.1'
-node_js:
-  - '10.15.1'
+- '7.2.1'
+
+env:
+  - NODE_VERSION="10.15.1"
 
 branches:
   only:
@@ -13,6 +14,7 @@ sudo: true
 services: postgresql
 
 before_install:
+- nvm install $NODE_VERSION
 - composer self-update
 
 install:
