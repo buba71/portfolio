@@ -26,16 +26,14 @@ class OnAuthenticationSuccessEventListenerTest extends TestCase
             'token' => $token
         ];
 
+
         $event = new AuthenticationSuccessEvent($data, $this->user, $this->response);
 
         $apiAuthenticationSuccessEvent = new ApiAuthenticationSuccessListener(3600);
         $apiAuthenticationSuccessEvent->onAuthenticationSuccess($event);
-        //dd($event->getData());
 
-
-        //dd($event->getResponse()->headers->getCookies());
         static::assertCount(1, $event->getResponse()->headers->getCookies());  // Has BEARER cookie.
-        static::assertContains($token, $event->getData());                       //  Response contain the token.
+        static::assertContains($token, $event->getData());                                   //  Response contain the token.
         static::assertEquals(true, $event->getData()['data']['isLogin']);          // isLogin status is "true".
         static::assertEquals(200, $event->getResponse()->getStatusCode());         // Response status code = 200.
     }
