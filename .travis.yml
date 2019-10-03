@@ -4,10 +4,32 @@ php:
 
 sudo: false
 
+branches:
+  only:
+    - master
+    - develop
+
+env:
+  - NODE_VERSION="10.15.1"
+
 services: postgresql
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+  yarn: true
+
 before_install:
+- nvm install $NODE_VERSION
 - composer self-update
 
 install:
 - composer install
+- yarn install
+- cp .env.dist .env
+- php bin/console doctrine:database:create --env=test
+- php bin/console doctrine:schema:create --env=test
+
+script:
+  - yarn jest
+  - php bin/phpunit

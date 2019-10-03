@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 class ApiAuthenticationSuccessListener
 {
-    private $secure = false;
+    private $secure = null;
 
     private $tokenTtl;
 
@@ -33,12 +33,14 @@ class ApiAuthenticationSuccessListener
                 'BEARER',
                 $token,
                 (new \DateTime())
-                    ->add(new \DateInterval('PT' . $this->tokenTtl . 'S'))
-
-            ),
-            '/',
-            null,
-            $this->secure
+                    ->add(new \DateInterval('PT' . $this->tokenTtl . 'S')),
+                '/',
+                null,
+                $this->secure,
+                true,
+                false,
+                'lax'
+            )
         );
         // Add data to the response in case of success
         $data['data'] = array('isLogin' => true);
