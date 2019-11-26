@@ -23,7 +23,7 @@ Vue.config.productionTip = false;
 
 const routes = [
     {
-        path: '/',
+        path: '/posts',
         name: 'posts',
         component: blogIndex
         //children: [
@@ -35,7 +35,7 @@ const routes = [
         // ]
     },
     {
-        path: '/:id/:slug',
+        path: '/posts/:id/:slug',
         name: 'post',
         component: PostDetails
     },
@@ -50,6 +50,7 @@ const routes = [
     ];
 
     const router = new VueRouter({
+        mode: 'history',
         routes
     });
 

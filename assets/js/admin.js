@@ -12,6 +12,9 @@ import Login from '../components/security/login.vue';
 import NotFound from '../Components/notfound/notFound.vue';
 import Store from '../store/store.js';
 
+// Import the component FlashMessage. "default" fixe the component import issue.
+const flashMessage = require('../components/blog/flashMessage.vue').default;
+
 // Init locale for Moment.js
 Moment.locale('fr');
 // Format Date display
@@ -24,6 +27,7 @@ Vue.filter('formatDate', function (value) {
 Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
+
 Axios.defaults.withCredentials = true;
 
 // Admin routes
@@ -59,16 +63,21 @@ const routes = [
     },
     ];
 
+    // Initiate router.
     const router = new VueRouter({routes});
 
     // Intercept authentications errors on API requests.
     Axios.interceptors.response.use(response => {
         return response;
     }, (error) => {
-        // If token expired or not present, Toggle the login state.
-        Store.commit('AUTH_ADMIN', error.response.data.isLogin);
-        router.push('/login');
+        if (error.response.status === 403) {
+            // If token expired or not present, Toggle the login state.
+            Store.commit('AUTH_ADMIN', error.response.data.isLogin);
+            router.push('/login');
+            return Promise.reject(error);
+        }
         return Promise.reject(error);
+
     });
 
     // Guard auth
@@ -83,19 +92,17 @@ const routes = [
     });
 
 
+
+
     new Vue(
         {
             el: '#app',
+            delimiters: [ '${', '}'],
+            components: { flashMessage },
             router,
             store: Store,
-            delimiters: [ '${', '}'],
             data: {
 
-            },
-            computed: {
-                message: function () {
-                    return this.$store.getters.successMsg;
-                }
             }
         }
     );

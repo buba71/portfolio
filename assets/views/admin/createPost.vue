@@ -23,7 +23,7 @@
 
 </template>
 <script>
-import Axios from 'axios';
+
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -38,31 +38,37 @@ export default {
                 content: '',
                 tags: ''
             },
+            errors: [],
             editor: ClassicEditor
         }
     },
     methods: {
         // create new post
-        createPost: function() {
-            let tagsArray = this.inputTagsToArray(this.post.tags);
-            Axios.post(`api/posts`, { title: this.post.title, content: this.post.content, tags: tagsArray } )
-                // Redirect to postList and display success msg or error msg
-                .then((response) => {
-                    this.$store.dispatch('displayMsg', 'Article ajouté avec succès.');
-                    this.$router.push('/');
-                })
-                .catch((error) => {
-                    this.$store.dispatch('displayMsg', 'UNe errreur s\'est produite');
-                })
+        createPost: async function() {
+            // Convert input Post tags string into object array.
+            this.post.tags = this.inputTagsToArray(this.post.tags);
+
+            try {
+               await this.$store.dispatch("createPost", this.post);
+               await this.$store.dispatch("displayMsg", "Article ajouté avec succès.");
+               this.$router.push('/');
+            } catch(error) {
+                if (error.response.status === 400) {
+                    this.errors = error.response.data.violations;
+                    console.log(this.errors);
+                } else {
+                    this.$router.push('/404');
+                }
+            }
         },
         // Convert Input string tags into Array of objects (Data transformer).
         inputTagsToArray: function(tags) {
 
             if(tags.length > 0) {
                 // Tag constructor
-                function Tag(name) {
+                let Tag = function (name) {
                     this.name = name;
-                }
+                };
                 // Adding filters to unique name tag, delete spaces,...
                 return (tags.split(',')).map((inputTag) => { return new Tag(inputTag); });
             } else {

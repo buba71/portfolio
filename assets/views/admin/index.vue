@@ -28,21 +28,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="post in slotProps.posts">
+                            <tr v-for="post in slotProps.posts" v-bind:key="post.id" v-bind:id="post.id">
                                 <th>{{ post.postDate | formatDate }}</th>
                                 <th>{{ post.title }}, {{ post.id }}</th>
-                                <th v-html="post.content"></th>
+                                <th v-html="$options.filters.truncate(post.content)"></th>
                                 <th>
                                     <router-link :to="{ name: 'postEdit', params: { id: post.id }}">
                                         <i class="fas fa-edit"></i>
                                     </router-link>
 
                                     <!-- Button trigger modal -->
-                                    <i class="fas fa-trash-alt" data-toggle="modal" data-target="#basicExampleModal">
+                                    <i class="fas fa-trash-alt" data-toggle="modal" v-bind:data-target="`#post${post.id}`">
                                     </i>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    <div class="modal fade" v-bind:id="`post${post.id}`" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                          aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -116,10 +116,11 @@
 
 </template>
 <script>
-import Axios from 'axios';
-import PostsList from '../../components/blog/postsList.vue';
+    import Axios from 'axios';
+    import truncate from '../../utils/filters.js';
+    import PostsList from '../../components/blog/postsList.vue';
 
-export default {
+    export default {
     name: 'adminPanel',
     components: { PostsList },
     data: function () {
@@ -131,9 +132,12 @@ export default {
     mounted: function () {
         this.fetchEmails();
     },
+    filters: {
+        truncate
+    },
     methods: {
         fetchEmails: function () {
-            Axios.get(`api/messages`)
+            Axios.get(`messages`)
                 .then((response) => {
                     this.mails = response.data['hydra:member'];
                 })
@@ -142,20 +146,23 @@ export default {
                 });
         },
         removeMail: function(id) {
-            Axios.delete(`api/messages/ ${id}`)
+            Axios.delete(`messages/ ${id}`)
                 .then(() => {
                     this.$store.dispatch('displayMsg', 'Courrier supprimé.')
                     this.fetchEmails();
                 });
 
         },
-        removePost: function(id) {
-             Axios.delete(`api/posts/ ${id}`)
-                .then(() => {
-                    this.$store.dispatch('displayMsg', 'Article supprimé.');
-                    this.$store.dispatch("loadPosts", 'api/posts?page=1');                                     // Refresh post list.
-                });
+        removePost: async function(id) {
+            try {
+                await this.$store.dispatch("removePost", id);
+                await this.$store.dispatch('displayMsg', 'Article supprimé.');
+            } catch(error) {
+                console.log(error.response.data);
+            }
+
+
         },
-    }
+    },
 }
 </script>

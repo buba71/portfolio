@@ -33,7 +33,7 @@ export default {
         // This function is used to logging user admin and generating Token (see symfony security component).
         login: async function () {
             try {
-                let { data } = await Axios.post('/api/login_check', { username: this.username, password: this.password});
+                let { data } = await Axios.post('login_check', { username: this.username, password: this.password});
                 // User is authenticated -> redirect to index page admin.
                 this.$store.commit('AUTH_ADMIN', data.data.isLogin); // Payload: isLogin state.
                 this.$router.push('/');

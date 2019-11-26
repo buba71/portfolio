@@ -1,14 +1,12 @@
 <template>
     <div>
         <nav class="breadcrumb-nav" aria-label="breadcrumb">
-            <ol class="breadcrumb blue-grey lighten-4">
+            <ol class="breadcrumb white">
                 <li class="breadcrumb-item" v-on:click="refetchPosts">
                     <a href="#" >Retour à la liste de tous les articles</a>
-                    <i class="fas fa-caret-right mx-2" aria-hidden="true"></i>
                 </li>
                 <li v-if="hasSearchTag" class="breadcrumb-item" v-bind:class="{ active: !postTitle}">
                     {{ pickedTag }}
-                    <i v-if="postTitle" class="fas fa-caret-right mx-2" aria-hidden="true"></i>
                 </li>
                 <li v-if="postTitle" class="breadcrumb-item active">
                     {{ postTitle }}
@@ -36,12 +34,12 @@ export default {
         refetchPosts: function () {
             if(this.pickedTag && this.postTitle) {
                 this.$store.commit('CLOSE_SEARCH_TAG');                     // Disable the breadCrumb when reload index
-                this.$router.push('/');
+                this.$router.push('/posts');
             } else if (this.postTitle){
-                this.$router.push('/');
+                this.$router.push('/posts');
             } else if(this.pickedTag){
                 this.$store.commit('CLOSE_SEARCH_TAG');
-                this.$store.dispatch("loadPosts", 'api/posts?page=1');
+                this.$store.dispatch("loadPosts", 'posts?page=1');
             }
         },
         refresh: function () {

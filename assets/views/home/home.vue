@@ -14,7 +14,7 @@
                        <strong>Vous êtes à la recherche d'un professionnel pour créer un site internet?
                         Vous recherchez un développeur web, freelance, pour vous épauler techniquement?
                         Ou bien vous voulez tout simplement profiter des opportunités du web pour développer votre activité?
-                        Spécialisé dans le développement PHP - Symfony, je mets à votre disposition mes compétences pour  vous
+                        Spécialisé dans le développement PHP/SYMFONY et VUEJS, je mets à votre disposition mes compétences pour  vous
                            accompagner dans la création d'une solution web sur mesure et adaptée à votre coeur de métier.</strong><br/>
                     </p>
 
@@ -26,9 +26,11 @@
                         <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
                             <img id="linkedin-icon"  class="" v-bind:src="'../../images/linkedin.png'" alt="linkedin">
                         </a>
+                        <!--
                         <a href="https://www.codewars.com/users/buba71" data-toggle="tooltip" title="Profil Codewars">
                             <img id="codewars-icon" class="" v-bind:src="'../../images/codewars.png'" alt="codewars">
                         </a>
+                        -->
                     </div>
 
                     <div id="contact_link" class="text-center">
@@ -490,6 +492,7 @@
                     <span>Un renseignement, un projet à proposer ? Contactez-moi en utilisant le formulaire ci-dessous.</span>
                     <div class="row">
                         <div class="col-md-8">
+                            <!-- Contact component -->
                             <contact-form></contact-form>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center mt-5">

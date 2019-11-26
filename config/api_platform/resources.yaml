@@ -35,6 +35,22 @@ App\Entity\Post:
             method: 'DELETE'
             access_control: 'is_granted("ROLE_ADMIN")'
 
+App\Entity\Comment:
+    collectionOperations:
+        get:
+            method: 'GET'
+        post:
+            method: 'POST'
+    itemOperations:
+        get:
+            method: 'GET'
+        put:
+            method: 'PUT'
+            acces_control: 'is_granted("ROLE_ADMIN")'
+        delete:
+            method: 'DELETE'
+            access_control: 'is_granted("ROLE_ADMIN")'
+
 App\Entity\Tag:
     collectionOperations:
         get:
@@ -51,3 +67,5 @@ App\Entity\Tag:
         delete:
             method: 'DELETE'
             access_control: 'is_granted("ROLE_ADMIN")'
+
+

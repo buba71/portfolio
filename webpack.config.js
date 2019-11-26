@@ -1,6 +1,7 @@
 const Encore = require('@symfony/webpack-encore');
 
 Encore
+    .enableSingleRuntimeChunk()
     .setOutputPath('public/build/')
     // The public path used by the web server to access the previous directory.
     .setPublicPath('/build')
@@ -21,10 +22,10 @@ Encore
     // Enable sass.
     .enableSassLoader()
     // configure Babel
-    .configureBabel(function (babelConfig) {
-        babelConfig.presets = ['es2015', 'stage-2'];
-        babelConfig.plugins = ['transform-runtime'];
-    })
+     //.configureBabel(function (babelConfig) {
+      //   babelConfig.presets = ['es2015', 'stage-2'];
+//babelConfig.plugins = ['transform-runtime'];
+ //    })
     // Enable EsLint
     .addLoader({
         test: /\.js$/,
@@ -38,3 +39,4 @@ Encore
 ;
 
 module.exports = Encore.getWebpackConfig();
+

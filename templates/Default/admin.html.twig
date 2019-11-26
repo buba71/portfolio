@@ -7,9 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Roboto+Mono:300"/>
-        <link rel="stylesheet" href="{{ asset('build/js/app.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('build/css/main.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('build/css/icons.css') }}"/>
+        {{ encore_entry_link_tags('js/app') }}
+        {{ encore_entry_link_tags('css/main') }}
+        {{ encore_entry_link_tags('css/icons') }}
     </head>
 
     <body>
@@ -26,9 +26,7 @@
             <!-- Navigation -->
             <main id="main-content">
 
-                <div v-if="message" class="alert alert-success mr-5 ml-5">
-                    <span>${message}</span>
-                </div>
+                <flash-message></flash-message>
 
                 <!-- Vue.js component -->
                 <router-view></router-view>
@@ -59,8 +57,7 @@
         </div>
 
     </div>
-
-    <script src="{{ asset('build/js/app.js') }}"></script>
-    <script src="{{ asset('build/js/admin.js') }}"></script>
+    {{ encore_entry_script_tags('js/admin') }}
+    {{ encore_entry_script_tags('js/app') }}
     </body>
 </html>

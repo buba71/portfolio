@@ -8,16 +8,15 @@ export default {
             return state.isLogin;
         }
     },
-    mutations: {
-        AUTH_ADMIN: function (state, payload) {
-            state.isLogin = payload;
-            console.log('isLogin status', state.isLogin);
-
-        }
-    },
     actions: {
         toggleAdminStatus: function ({commit}, status) {
             commit('AUTH_ADMIN', status);
         }
-    }
+    },
+    mutations: {
+        AUTH_ADMIN: function (state, payload) {
+            state.isLogin = payload;
+            console.log('isLogin status', state.isLogin);
+        }
+    },
 };
