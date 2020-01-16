@@ -9,7 +9,10 @@ import AdminAuth from './modules/adminAuth.js';
 import FlashMessage from './modules/flashMessage';
 
 Vue.use(Vuex);
-Axios.defaults.baseURL = "https://david-de-lima.tech/api/";
+// Change to baseURL to "https://david-de-lima.tech/api/" on production env.
+// Change to baseURL to "/api/" on production env.
+Axios.defaults.baseURL = "/api/";
+
 
 export default new Vuex.Store({
     modules: {

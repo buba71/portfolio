@@ -6,7 +6,7 @@
 
     <article>
       <h1 class="post-title">{{ post.title }}</h1>
-      <p v-html="post.content"/>
+      <p class="postContent" v-html="post.content"/>
     </article>
 
     <comments />
@@ -17,6 +17,7 @@
 import BreadCrumb from "../../components/navigation/breadCrumb.vue";
 import FlashMessage from "../../components/blog/flashMessage.vue";
 import Comments from "../../components/blog/comments.vue";
+import hljs from "highlight.js";
 
 export default {
     name: 'PostDetails',
@@ -37,7 +38,12 @@ export default {
         }
     },
     mounted: function() {
-        this.fetchPost();
+        this.fetchPost()
+            .then(() => {
+            this.$nextTick(() => {
+              this.highlightPost();
+            });
+            });
 
     },
     methods: {
@@ -57,6 +63,12 @@ export default {
             console.log(error.response.data);
           }
         }
+      },
+      highlightPost: function () {
+        document.querySelectorAll('code').forEach(function(block) {
+          hljs.highlightBlock(block);
+        })
+
       }
     },
 

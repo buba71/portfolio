@@ -800,10 +800,55 @@
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-12.4.0.tgz#d5eefb00424d6c559f826d8509ba6ce7e1ce12b9"
   integrity sha512-KzndcFz45e96z/ErToABYFf7mtcHyPCyNzzobAkpBRzKqBoS0CMDmLjHWWnL0ite39oidgBJ7PXt+iRl7p+5jA==
 
+"@ckeditor/ckeditor5-core@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-core/-/ckeditor5-core-15.0.0.tgz#891916804c8376f00b93dea0ed3af704725420e8"
+  integrity sha512-hZ0Bljc3zAzZjn1XDaPQc+ryTx103QnzFdFxRD6iPHCGhEG4iMiA9tP7yf6yQxZzewv6desAEqVK9gHCFaRxww==
+  dependencies:
+    "@ckeditor/ckeditor5-engine" "^15.0.0"
+    "@ckeditor/ckeditor5-utils" "^15.0.0"
+    lodash-es "^4.17.10"
+
+"@ckeditor/ckeditor5-engine@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-15.0.0.tgz#06c013882657d6bc73e4b99fd85fa77d6bf599c6"
+  integrity sha512-6CGzfXmK/tw/fKdXqfp+azpu4fycbrTHKAHmj68we2opGWLvEpuuS/p0g39+PcrMNPYRIVjq+id2676Q6+QZrw==
+  dependencies:
+    "@ckeditor/ckeditor5-utils" "^15.0.0"
+    lodash-es "^4.17.10"
+
+"@ckeditor/ckeditor5-ui@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-ui/-/ckeditor5-ui-15.0.0.tgz#25252546518cc34a62ad3a08c1136ae78fa7dc38"
+  integrity sha512-+gTXxYveLcaYewey2xolqfcIOCSP3AJk45KMG+3GtU2r2JedPMGgbR/DwqdTuY4xxrRNLbPC9Mi9e+19cXcJbQ==
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^15.0.0"
+    "@ckeditor/ckeditor5-utils" "^15.0.0"
+    lodash-es "^4.17.10"
+
+"@ckeditor/ckeditor5-utils@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-15.0.0.tgz#07859a06671acdd64d79dcc5a93c300139bed5c0"
+  integrity sha512-eAUYjFusNuj2N8NqGbquMOnSv4wjcO2TuipCP1Rao/FHWX6h+PWBhxnD3J9igRQRvLePYbtQAUAvLeD846JA0A==
+  dependencies:
+    ckeditor5 "^15.0.0"
+    lodash-es "^4.17.10"
+
 "@ckeditor/ckeditor5-vue@^1.0.0-beta.2":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-vue/-/ckeditor5-vue-1.0.0.tgz#f1c22776fa625afa8603b2156406c5673bdb1bce"
   integrity sha512-rrwuRQ/vHPnBDBhgOj/0y0QlJTmTJwPWF9QbyxJ/ThPFE8U8823HGZ6wKOCtXOzuNmGvFkXRKQULpXupo4URRw==
+
+"@ckeditor/ckeditor5-widget@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-widget/-/ckeditor5-widget-15.0.0.tgz#d8461e96bb58ef49997bb1fb12e7bea5a92c9f24"
+  integrity sha512-3kRw02xuJwLFJqbycD3FJhoOalUbRvTSO9dzfTav/21g7vHiDdyKWlhDqP1kISm3N/VRhkP72k3vN4TlnPSraQ==
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^15.0.0"
+    "@ckeditor/ckeditor5-engine" "^15.0.0"
+    "@ckeditor/ckeditor5-ui" "^15.0.0"
+    "@ckeditor/ckeditor5-utils" "^15.0.0"
+    lodash-es "^4.17.10"
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
@@ -2372,6 +2417,25 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+ckeditor5-code-snippet-plugin@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ckeditor5-code-snippet-plugin/-/ckeditor5-code-snippet-plugin-1.0.3.tgz#ce8edff20e2cf3c4c73a893317d36a601c461c53"
+  integrity sha512-Y7CswbI+Eu0PnLi4MNM14WMhh8v8agSTPGEQwTI5EfLywnpqqiTdRYDg7jX5EqVdNrrJkrVBgAe2SjSjrlHriw==
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^15.0.0"
+    "@ckeditor/ckeditor5-ui" "^15.0.0"
+    "@ckeditor/ckeditor5-widget" "^15.0.0"
+
+ckeditor5@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/ckeditor5/-/ckeditor5-15.0.0.tgz#ec5c6d38505077ee6756deb42d07b3a6c4d9616b"
+  integrity sha512-LVrey6xTa+Sm2CvYaicPbW51/fV19fd9EFkhERSvskTSyKelvzLwBlug0PYHS8JFnrdBWjQf5bbdggzFZyVt2w==
+
+ckeditor@^4.12.1:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/ckeditor/-/ckeditor-4.12.1.tgz#954a7b028dd611e44ba51cc7c2fe051cf1052186"
+  integrity sha512-pH2Su4oi0D4iN/3U8nUcwI7/lXHoOJi0aiN8e2zxnm4Ow5kq8eZP2ZGmpYyuqRyKZ2tHaU8+OyYi7laXcjiq9Q==
 
 class-utils@^0.3.5:
   version "0.3.6"
@@ -4486,6 +4550,11 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
+highlight.js@^9.16.2:
+  version "9.16.2"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.16.2.tgz#68368d039ffe1c6211bcc07e483daf95de3e403e"
+  integrity sha512-feMUrVLZvjy0oC7FVJQcSQRqbBq9kwqnYE4+Kj9ZjbHh3g+BisiPgF49NyQbVLNdrL/qqZr3Ca9yOKwgn2i/tw==
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -5897,6 +5966,11 @@ locate-path@^3.0.0:
   dependencies:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
+
+lodash-es@^4.17.10:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -9321,6 +9395,11 @@ vue-check-view@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/vue-check-view/-/vue-check-view-0.2.4.tgz#790a081767802ec503362d028558faefe15c4cb3"
   integrity sha512-PqnH8k0ecoaHT0vZUhhzhwBZBq4wEWL68HWm4nnE59wFhhqklv+M8IWA1PAIqKDSTOsIan15iYhFKE2J1Kbn8g==
+
+vue-ckeditor2@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/vue-ckeditor2/-/vue-ckeditor2-2.1.5.tgz#1d28e6963612f164afac14568fa50fcee38e9bd9"
+  integrity sha512-8aDxfu4Yhfba8b/TPWLEq2qXEasyBvIx5+QPlg1yHe+U3qfKwKBeplQFtQmZN6W8EtDeKEz+AAHn+ALgJMDRsQ==
 
 vue-eslint-parser@^5.0.0:
   version "5.0.0"

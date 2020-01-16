@@ -9,7 +9,7 @@
                 </div>
                 <div class="form-group">
                     <label for post-content>Contenu</label>
-                    <ckeditor :editor="editor" v-model="post.content" tag-name="textarea" id="post-content"></ckeditor>
+                    <vue-ckeditor :config="config" v-model="post.content" id="post-content"></vue-ckeditor>
                 </div>
                 <div class="form-group">
                     <label for="post-tags">Tags</label>
@@ -23,13 +23,13 @@
 </template>
 <script>
 import Axios from 'axios';
-import CKEditor from '@ckeditor/ckeditor5-vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import VueCkeditor from "vue-ckeditor2";
+import EditorConfig from "../../config/CkeditorConfig.js";
 
 
 export default {
     name: 'EditPost',
-    components: { ckeditor: CKEditor.component },
+    components: { VueCkeditor },
     data: function() {
         return {
             post: {
@@ -39,7 +39,7 @@ export default {
                 tags: ''
             },
             errors: [],
-            editor: ClassicEditor
+            config: EditorConfig
         }
     },
     mounted: function() {

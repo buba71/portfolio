@@ -8,7 +8,7 @@
                     <input type="text" class="form-control" v-model="post.title">
                 </div>
                 <div class="form-group">
-                    <ckeditor :editor="editor" v-model="post.content" tag-name="textarea"></ckeditor>
+                    <vue-ckeditor  :config="config" v-model="post.content"/>
                 </div>
                 <div class="form-group">
                     <label></label>
@@ -24,13 +24,15 @@
 </template>
 <script>
 
-import CKEditor from '@ckeditor/ckeditor5-vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+//import CKEditor from '@ckeditor/ckeditor5-vue';
+//import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+//import CodeSnippet from 'ckeditor5-code-snippet-plugin';
+import VueCkeditor from 'vue-ckeditor2';
+import EditorConfig from "../../config/CkeditorConfig.js";
 
 export default {
     name: 'CreatePost',
-    components: { ckeditor: CKEditor.component },
+    components: { VueCkeditor },
     data: function() {
         return {
             post: {
@@ -39,7 +41,7 @@ export default {
                 tags: ''
             },
             errors: [],
-            editor: ClassicEditor
+            config: EditorConfig
         }
     },
     methods: {

@@ -165,10 +165,6 @@ section {
     transition: box-shadow 0.5s;
 }
 
-#github-icon:hover, #linkedin-icon:hover {
-    box-shadow: 0 2px 5px black;
-}
-
 .box-content li {
     list-style-type: none;
 }
