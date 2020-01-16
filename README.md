@@ -5,4 +5,4 @@
 
 **Application built with symfony4 & Vue.js(vuex/vue-router)**
 
-**Version: 1.2.2**
+**Version: 2.0.1**
