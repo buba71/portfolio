@@ -14,8 +14,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ApiResource(attributes = {
- *     "normalization_context"={ "groups" = {"post", "tags"} },
- *     "denormalization_context"={ "groups" = {"post", "tags"} }
+ *     "normalization_context"={ "groups" = {"post", "tags", "comments"} },
+ *     "denormalization_context"={ "groups" = {"post", "tags", "comments"} }
  * })
  * @ApiFilter(SearchFilter::class, properties={"tags.name": "exact"})
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
@@ -58,6 +58,13 @@ class Post
     private $slug;
 
     /**
+     * One post has many comments. This is the inverse side( side "one").
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="post", cascade={"persist", "remove"})
+     * @Groups({"comments"})
+     */
+    private $comments;
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", cascade={"persist", "remove"})
      * @Groups({"tags"})
      */
@@ -65,6 +72,7 @@ class Post
 
     public function __construct()
     {
+        $this->comments = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->postDate = new \DateTime();
     }
@@ -125,6 +133,34 @@ class Post
     public function getSlug():?string
     {
         return $this->slug;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getComments():?Collection
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param Comment $comment
+     * @return Post
+     */
+    public function addComment(Comment $comment):self
+    {
+        $this->comments[] = $comment;
+        $comment->setPost($this);
+
+        return $this;
+    }
+
+    /**
+     * @param Comment $comment
+     */
+    public function removeComment(Comment $comment):void
+    {
+        $this->comments->removeElement($comment);
     }
 
     /**

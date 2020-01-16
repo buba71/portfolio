@@ -47,13 +47,13 @@ export default {
         },
         urlTemplate: function() {
             // generate url when user click on pagination number :  "api/posts?tags.name=[]&page=" or "api/posts?page="
-            let url = this.pageData.template;
-            return url.substring(1, url.length -1);
+            let url = this.apiUrlFormat(this.pageData.template);
+            return url.substring(0, url.length -1);
         }
     },
     methods: {
         onClickPreviousPage: function(page) {
-            this.$emit('page-changed', page );
+            this.$emit('page-changed', this.apiUrlFormat(page));
             this.pageData.currentPage = page.substr(-1, 1);
         },
         onClickPage: function(page) {
@@ -61,9 +61,14 @@ export default {
             this.pageData.currentPage = page;
         },
         onClickNextPage: function(page) {
-            this.$emit('page-changed', page );
+            this.$emit('page-changed', this.apiUrlFormat(page));
             this.pageData.currentPage = page.substr(-1, 1);
+        },
+        apiUrlFormat: function(url) {
+            return url.replace(/\/api\//, "");
         }
+
+
     }
 }
 </script>

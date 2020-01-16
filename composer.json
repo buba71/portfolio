@@ -24,6 +24,7 @@
         "symfony/templating": "4.2.*",
         "symfony/translation": "4.2.*",
         "symfony/validator": "4.2.*",
+        "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "4.2.*"
     },
     "config": {

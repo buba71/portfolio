@@ -1,4 +1,4 @@
-import "babel-polyfill";
+// import "babel-polyfill";
 import { shallowMount } from "@vue/test-utils";
 import TagSearch from '../../assets/components/blog/tagSearch';
 import axios from 'axios';
@@ -20,7 +20,7 @@ describe('TagSearch', () => {
         const wrapper = shallowMount(TagSearch);
         await wrapper.vm.$nextTick();
         // Then
-        expect(axios.get).toBeCalledWith('api/tags');
+        expect(axios.get).toBeCalledWith('tags');
         expect(wrapper.findAll('li')).toHaveLength(2);
     });
 

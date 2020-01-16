@@ -5,12 +5,14 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="canonical" href="https://david-de-lima.tech"/>
         <meta name="description" content="Développeur web Freelance spécialisé php Symfony vue.js. Je met mes compétences à votre service pour la réalisation de vos projets web."/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Roboto+Mono:300"/>
-        <link rel="stylesheet" href="{{ asset('build/js/app.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('build/css/main.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('build/css/icons.css') }}"/>
+        <link rel="canonical" href="https://david-de-lima.tech"/>
+        {{ encore_entry_link_tags('js/app') }}
+        {{ encore_entry_link_tags('css/main') }}
+        {{ encore_entry_link_tags('css/icons') }}
         {% block stylesheets %}{% endblock %}
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78369194-2"></script>
@@ -100,12 +102,10 @@
 
     </div>
     </div>
-
-
-        {% block javascript %}{% endblock %}
-
-    <script src="{{ asset('build/js/home.js') }}"></script>
-    <script src="{{ asset('build/js/app.js') }}"></script>
+    <!-- Javascript scripts -->
+        {% block javascripts %}{% endblock %}
+        {{ encore_entry_script_tags('js/home') }}
+        {{ encore_entry_script_tags('js/app') }}
 
 
     </body>

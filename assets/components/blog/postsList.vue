@@ -30,9 +30,17 @@ export default {
             'pageData'
         ])
     },
-    mounted: function() {
+    mounted: async function() {
         // Initialise posts list on page number 1.
-        this.$store.dispatch("loadPosts", 'api/posts?page=1');
+        try {
+
+            await this.$store.dispatch("loadPosts", 'posts?page=1');
+
+        } catch (error) {
+            console.log(error.response.data)
+        }
+
+
 
     }
 }
