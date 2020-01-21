@@ -34,9 +34,9 @@ export default {
         refetchPosts: function () {
             if(this.pickedTag && this.postTitle) {
                 this.$store.commit('CLOSE_SEARCH_TAG');                     // Disable the breadCrumb when reload index
-                this.$router.push('/posts');
+                this.$router.push('/');
             } else if (this.postTitle){
-                this.$router.push('/posts');
+                this.$router.push('/');
             } else if(this.pickedTag){
                 this.$store.commit('CLOSE_SEARCH_TAG');
                 this.$store.dispatch("loadPosts", 'posts?page=1');
