@@ -19,9 +19,8 @@ services:
         ports:
             - 5432:5432       
         environment:
-            POSTGRES_USER: root
-            POSTGRES_PASSWORD: root
-            POSTGRES_DB: mydb
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
     pgadmin:
         container_name: symfony_pgadmin
@@ -29,7 +28,7 @@ services:
         ports:
             - 80:80
         environment:
-            PGADMIN_DEFAULT_EMAIL: d.delima@outlook.fr
-            PGADMIN_DEFAULT_PASSWORD: root
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
         links:
             - dbserver
