@@ -14,24 +14,11 @@
                        <strong>Vous êtes à la recherche d'un professionnel pour créer un site internet?
                         Vous recherchez un développeur web, freelance, pour vous épauler techniquement?
                         Ou bien vous voulez tout simplement profiter des opportunités du web pour développer votre activité?
-                        Spécialisé dans le développement PHP/SYMFONY et VUEJS, je mets à votre disposition mes compétences pour  vous
-                           accompagner dans la création d'une solution web sur mesure et adaptée à votre coeur de métier.</strong><br/>
+                        Spécialisé dans le développement PHP/SYMFONY et VUE.JS/NUXT.JS, je vous accompagne dans la création
+                        d'une solution web sur mesure et adaptée à votre coeur de métier en vous proposant mes compétences
+                        en développement web et gestion de projet.
+                        </strong><br/>
                     </p>
-
-
-                    <div class="social-links d-flex justify-content-center">
-                        <a href="https://github.com/buba71" data-toggle="tooltip" title="Profil Github">
-                            <img id="github-icon" class="" v-bind:src="'../../images/github.png'" alt="github">
-                        </a>
-                        <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
-                            <img id="linkedin-icon"  class="" v-bind:src="'../../images/linkedin.png'" alt="linkedin">
-                        </a>
-                        <!--
-                        <a href="https://www.codewars.com/users/buba71" data-toggle="tooltip" title="Profil Codewars">
-                            <img id="codewars-icon" class="" v-bind:src="'../../images/codewars.png'" alt="codewars">
-                        </a>
-                        -->
-                    </div>
 
                     <div id="contact_link" class="text-center">
                         <a class="btn" id="contact_btn" href="#" v-scroll-to="'#contact'" style="font-family: 'Roboto Mono Medium';">Contactez-moi</a>
@@ -427,7 +414,7 @@
                         </div>
                         <!-- Fourth development -->
 
-                        <!-- Fourth development -->
+                        <!-- Fifh development -->
                         <div class="col-md-4">
                             <!-- Card -->
                             <div class="card view overlay">
@@ -472,7 +459,54 @@
                             <!-- Card -->
 
                         </div>
-                        <!-- Fourth development -->
+                        <!-- Fifth development -->
+
+                        <!-- sixfth development -->
+                        <div class="col-md-4">
+                            <!-- Card -->
+                            <div class="card view overlay">
+                                <!-- card image -->
+
+                                <img class="card-img-top" v-bind:src="'../../images/breengrow.png'" alt="Breengrow website" >
+                                <a href="https://github.com/buba71/breengrow-frontend">
+                                    <div class="mask rgba-teal-strong d-flex align-items-center">
+                                        <!-- Overlay content -->
+                                        <div class="project-description">
+
+                                            <ul>
+                                                <li>SYMFONY 4, NUXT.JS, API PLATFORM</li>
+                                                <li>PHP, JAVASCRIPT</li>
+                                                <li>MYSQL</li>
+                                                <li>DOCKER</li>
+                                                <li>TRAVIS CI</li>
+                                            </ul>
+
+                                            <hr>
+
+                                            <p>Plateforme web d'échange utilisant nuxt.js pour le frontend et une api symfony 4 pour le backend(API Platform).</p>
+                                        </div>
+                                        <!-- Overlay content -->
+                                    </div>
+                                </a>
+                                <!-- card image -->
+
+                                <!-- Card content -->
+                                <div class="card-body">
+                                    <!-- Title -->
+                                    <div class="card-title">
+                                        <h6><strong>Breengrow</strong></h6>
+                                    </div>
+                                    <p class="card-text">
+
+                                    </p>
+                                    <!-- Title -->
+                                </div>
+                                <!-- Card content -->
+                            </div>
+                            <!-- Card -->
+
+                        </div>
+                        <!-- Fifth development -->
                     </div>
                 </div>
             </div>

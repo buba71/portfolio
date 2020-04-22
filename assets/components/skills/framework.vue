@@ -1,6 +1,6 @@
 <template>
     <transition-group name="skills-move" tag="div" class="row">
-        <div v-for="framework in frameworks" class="col-6 col-sm-4 text-center" v-bind:key="framework.id">
+        <div v-for="framework in frameworks" class="col-6 col-sm-3 text-center" v-bind:key="framework.id">
             <img class="icon-tech" v-bind:src="framework.img">
             <p>{{ framework.name }}</p>
         </div>
@@ -23,6 +23,11 @@ const dataFrameworks = [
     },
     {
         id: 3,
+        img: '../../images/nuxt.png',
+        name: 'Nuxt.js'
+    },
+    {
+        id: 4,
         img: '../../images/symfony.png',
         name: 'Symfony 4'
     }
