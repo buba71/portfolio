@@ -1,6 +1,6 @@
 <?php
 
-namespace App\tests\Command;
+namespace App\Tests\Api\Command;
 
 use App\Command\CreateAdminUserCommand;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
