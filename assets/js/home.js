@@ -1,79 +1,66 @@
 import Vue from 'vue';
-import $ from 'jquery';
-import VueRouter from 'vue-router';
-import HomeIndex from '../views/home/home.vue';
-import NotFound from '../Components/notfound/notFound.vue';
-import VueScrollTo from 'vue-scrollto';
-import CheckView from 'vue-check-view';
+import Contact from '../components/contact/contactForm.vue';
 
-Vue.use(VueRouter);
 
-Vue.use(
-    VueScrollTo,
+/**
+ * 
+ * ***********************************************************************
+ *      SERVICES AND SKILLS ANIMATIONS. CSS file is in animation.css
+ * ***********************************************************************
+ */
+
+/**
+ * @param mixed element
+ * 
+ * @return [type]
+ */
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+const leftService = document.querySelectorAll('.service-left');
+const rightService = document.querySelectorAll('.service-right');
+const leftSkill = document.querySelectorAll('.skill-left');
+const rightSkill = document.querySelectorAll('.skill-right');
+
+/**
+ * @param mixed elements
+ * @param mixed animation
+ * 
+ * @return [type]
+ */
+function animate(elements, animation) {
+    elements.forEach((element) => {
+        document.addEventListener('scroll', function () {
+            if (isInViewport(element)) {
+                element.classList.add(animation);
+            }
+        });
+    });
+}
+
+animate(leftService, 'animated-left');
+animate(rightService, 'animated-right');
+animate(leftSkill, 'animated-left');
+animate(rightSkill, 'animated-right');
+
+// Contact Form injected in index.html.twi template.
+new Vue(
     {
-        container: "body",
-        duration: 1500,
-        easing: "ease-in",
-        offset: -80,
-        force: true,
-        cancelable: false,
-        onStart: false,
-        onDone: false ,
-        onCancel: false,
-        x: false,
-        y: true
+        el: '#app',
+        delimiters: [ '${', '}'],
+        components: { 'contact-form': Contact },
+        data: {
+            message: 'hello world'
+        }
     }
 );
 
-Vue.use(CheckView);
 
-Vue.config.productionTip = false;
-
-const routes = [
-    {
-        path: '/',
-        name: 'home',
-        component: HomeIndex
-    },
-    {
-        path: '/404',
-        component: NotFound
-    },
-    {
-        path: '*',
-        redirect: '/404'
-    },
-    ];
-
-    const router = new VueRouter({
-        routes
-    });
-
-
-    new Vue(
-        {
-            el: '#app',
-            delimiters: [ '${', '}'],
-            router,
-            data: {
-                preloader: true
-            },
-
-            mounted: function () {
-                this.preloading();
-            },
-            methods: {
-                // close navBar onclick in mobile view
-                close() {
-                    let closeMenu = $('#navbarNav');
-                    closeMenu.removeClass('show');
-                },
-                preloading() {
-                    let v = this;
-                    setTimeout(function () {
-                        v.preloader = false;
-                    },3000)
-                }
-            }
-        }
-    );

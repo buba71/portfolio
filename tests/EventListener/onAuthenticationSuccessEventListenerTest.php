@@ -1,6 +1,6 @@
 <?php
 
-namespace App\tests\EventListener;
+namespace App\Tests\Api\EventListener;
 
 use App\Entity\User;
 use App\EventListener\ApiAuthenticationSuccessListener;
