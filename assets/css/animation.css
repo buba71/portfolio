@@ -7,7 +7,8 @@
 }
 
 .cursor-console {
-  animation: flash-cursor 1.5s cubic-bezier(1,0,0,1) infinite;
+  margin-left: 5px;
+  animation: flash-cursor 1.5s cubic-bezier(1,-0.13, 0, 1.14) infinite;
 }
 
 @keyframes box-left {
@@ -38,4 +39,47 @@
     opacity: 0;
   }
 }
+
+/* transitions */
+
+.scrollButton-enter-active {
+  transition: opacity 1s ease;
+}
+
+.scrollButton-enter {
+  opacity: 0;
+}
+
+.fade1-enter-active {
+  transition: opacity 0.5s ease, transform 1s;
+}
+
+.fade1-enter {
+  opacity: 0;
+  transform: translatex(-50%);
+
+}
+
+.fade2-enter-active {
+  transition: opacity 0.5s ease, transform 1s;
+}
+
+.fade2-enter {
+  opacity: 0;
+  transform: translatex(50%);
+
+}
+
+.skills-move-enter-active {
+  transition: transform 1s ease;
+}
+
+.skills-move-enter {
+  transform: scale(0);
+}
+
+.skills-move-enter-to {
+  transform: scale(1);
+}
+
 

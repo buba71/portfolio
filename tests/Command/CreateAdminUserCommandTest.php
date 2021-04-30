@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Tests\Api\Command;
+namespace App\Tests\Command;
 
-use App\Command\CreateAdminUserCommand;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
