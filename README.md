@@ -5,4 +5,27 @@
 
 **Application built with symfony4 & Vue.js(vuex/vue-router)**
 
+### Installation
+
+````
+composer install
+
+php bin/console doctrine:database:create
+
+php bin/console doctrine:schema:update --force
+````
+
+### Run tests
+
+````
+php bin/console doctrine:fixtures:load -n
+
+php bin/phpunit
+
+npm run test
+
+````
+
+Make sure PHP version is <= 7.3 .
+
 **Version: 2.0.1**

@@ -1,6 +1,13 @@
 {
     "type": "project",
     "license": "proprietary",
+    "name": "buba71/portfolio",
+    "description": "De Lima David portfolio",
+    "authors": [
+        {
+            "name": "David De Lima"
+        }
+    ],
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
