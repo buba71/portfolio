@@ -81,6 +81,10 @@ section {
     font-size: medium;
 }
 
+section h2 {
+    color: #999d9c;
+}
+
 #scroll-return {
     position: fixed;
     top: 85%;
