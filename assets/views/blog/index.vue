@@ -2,7 +2,7 @@
     <div>
         <!-- Navigation -->
         <bread-crumb v-if="hasSearchTag"></bread-crumb>
-        <h1 id="blog-title" class="d-flex justify-content-center"style="color: #8c8c8c; margin-bottom: 50px">Blog david-de-lima.tech</h1>
+        <h1 id="blog-title" class="d-flex justify-content-center"style="color: #8c8c8c; margin-bottom: 50px">Blog david-de-lima.com</h1>
 
         <!-- Display Tags -->
         <tag-search></tag-search>
