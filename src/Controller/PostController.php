@@ -12,6 +12,21 @@ use Twig\Environment;
 
 final class PostController
 {
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+
+    /**
+     * PostController constructor.
+     * @param EntityManagerInterface $entityManager
+     */
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     /**
      * @param Environment $twig
      * @return Response
@@ -19,13 +34,20 @@ final class PostController
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function showAll(Environment $twig, EntityManagerInterface $entityManager): Response
+    public function showAll(Environment $twig): Response
     {
-        $posts = $entityManager->getRepository(Post::class)->findAll();
+        $posts = $this->entityManager->getRepository(Post::class)->findAll();
 
         return new Response($twig->render(
-            'Default/posts.html.twig',
+            'Blog/posts.html.twig',
             [ 'posts' => $posts ]
         ));
+    }
+
+    public function showDetails(string $slug)
+    {
+        $post = $this->entityManager->getRepository(Post::class)->findOneBy(['slug' => $slug]);
+        
+        dd($post);
     }
 }

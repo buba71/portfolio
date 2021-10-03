@@ -16,6 +16,6 @@ class AdminController
      */
     public function index(Environment $twig): Response
     {
-        return new Response($twig->render('Default/admin.html.twig'));
+        return new Response($twig->render('Admin/admin.html.twig'));
     }
 }

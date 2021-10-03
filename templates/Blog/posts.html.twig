@@ -23,7 +23,11 @@
         </script>
     </head>
     <body>
+        <!-- With vueJS
+
         <div id="app">
+
+        -->
 
             <div id="app-wrapper">
                 <header>
@@ -51,8 +55,47 @@
                         </div>
 
 
-                        <!-- Vue.js component -->
-                        <router-view></router-view>
+                        <!-- Vue.js component  <router-view></router-view> -->
+
+                        {% if posts is defined %}
+                            {% for post in posts %}
+                            <!-- Post card -->
+                            <article class="card post-item" >
+                                <div class="title-box">
+                                    <h2>{{ post.title }}</h2>
+
+                                    <ul class="tag-list" >
+                                        {% for tag in post.tags %}
+                                            <li class="tag-item d-flex justify-content-center" > {{ tag.name }} </li>
+                                        {% endfor  %}
+                                    </ul>
+                                </div>
+                                <div class="postInfo">
+                                    <i class="far fa-calendar-alt"></i> {{ post.postDate| date }}
+                                    <i class="far fa-comment-alt"></i> {{ post.comments|length }}
+                                </div>
+
+                                <div class="postContent">
+
+                                    {{ post.content|raw }}
+                                    <div class="fullPost">
+                                        <a href="{{ path('show_post', {'slug':post.slug}) }}">
+                                            <i class="fas fa-angle-double-right"></i><span> Lire la suite</span>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+                            </article>
+                            <!-- Post card -->
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div v-else class="mb-4">Il n'y a pas d'article pour le moment.</div>
+
+                        {% endif %}
 
                     </div>
                 </main>
@@ -80,10 +123,9 @@
                 <!-- Footer -->
             </div>
 
-        </div>
+        <!-- </div> -->
 <!-- Scripts -->
-        {{ encore_entry_script_tags('js/blog') }}
-        {{ encore_entry_script_tags('js/app') }}
+
 
     </body>
 

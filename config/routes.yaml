@@ -6,6 +6,10 @@ posts:
     path: /posts
     controller: App\Controller\PostController::showAll
 
+show_post:
+    path: /post/{slug}
+    controller: App\Controller\PostController::showDetails
+
 admin:
     path: /admin
     controller: App\Controller\AdminController::index
