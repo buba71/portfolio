@@ -11,7 +11,7 @@
         <posts-list>
             <template v-slot:default="slotProps">
                 <div v-if="slotProps.posts.length > 0">
-                    <!-- Post details -->
+                    <!-- Post card -->
                     <article class="card post-item" v-for="post in slotProps.posts">
                         <div class="title-box">
                             <h2>{{ post.title }}</h2>
@@ -33,7 +33,7 @@
                             </div>
                         </router-link>
                     </article>
-                    <!-- Post details -->
+                    <!-- Post card -->
                 </div>
 
                 <div v-else class="mb-4">Il n'y a pas d'article pour le moment.</div>

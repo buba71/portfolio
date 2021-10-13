@@ -9,7 +9,7 @@ use Twig\Environment;
 /**
  * Class DefaultController
  */
-class IndexController
+final class IndexController
 {
     /**
      * @param Environment $twig
@@ -20,6 +20,6 @@ class IndexController
      */
     public function index(Environment $twig): Response
     {
-        return new Response($twig->render('Default/index.html.twig'));
+        return new Response($twig->render('Home/index.html.twig'));
     }
 }

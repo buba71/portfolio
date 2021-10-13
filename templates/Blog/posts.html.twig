@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Blog david-de-lima.tech - Entrepreneur - Développeur web Freelance php Symfony Vue.js|Nuxt.js en Bourgogne ou en télétravail</title>
+        <title>Blog david-de-lima.com - Entrepreneur - Développeur web Freelance php Symfony Vue.js|Nuxt.js en Bourgogne ou en télétravail</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,7 +23,11 @@
         </script>
     </head>
     <body>
+        <!-- With vueJS
+
         <div id="app">
+
+        -->
 
             <div id="app-wrapper">
                 <header>
@@ -50,9 +54,65 @@
                             </a>
                         </div>
 
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
 
-                        <!-- Vue.js component -->
-                        <router-view></router-view>
+
+                        {% block content %}
+                        <!-- Vue.js component  <router-view></router-view> -->
+                        {% if app.request.get('tag') %}
+                            {% include('Blog/breadcrumb.html.twig')%}
+                        {% endif %}
+
+                        <h1 id="blog-title" class="d-flex justify-content-center"style="color: #8c8c8c; margin-bottom: 50px">Blog david-de-lima.com</h1>
+
+                        {% include('Blog/tag-search.html.twig')%}
+
+                        {% if posts is defined %}
+                            {% for post in posts %}
+
+                            <!-- Post card -->
+                            <article class="card post-item" >
+                                <div class="title-box">
+                                    <h2>{{ post.title }}</h2>
+
+                                    <ul class="tag-list" >
+                                        {% for tag in post.tags %}
+                                            <li class="tag-item d-flex justify-content-center" > {{ tag.name }} </li>
+                                        {% endfor  %}
+                                    </ul>
+                                </div>
+                                <div class="postInfo">
+                                    <i class="far fa-calendar-alt"></i> {{ post.postDate| date }}
+                                    <i class="far fa-comment-alt"></i> {{ post.comments|length }}
+                                </div>
+
+                                <div class="postContent">
+
+                                    {{ (post.content | slice(0, 200)~'...')|raw  }}
+                                    <div class="fullPost">
+                                        <a href="{{ path('show_details', {'slug':post.slug}) }}">
+                                            <i class="fas fa-angle-double-right"></i><span> Lire la suite</span>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+                            </article>
+                            <!-- Post card -->
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div v-else class="mb-4">Il n'y a pas d'article pour le moment.</div>
+
+                        {% endif %}
+
+                        {% endblock %}
 
                     </div>
                 </main>
@@ -80,11 +140,10 @@
                 <!-- Footer -->
             </div>
 
-        </div>
+        <!-- </div> -->
 <!-- Scripts -->
-        {{ encore_entry_script_tags('js/blog') }}
-        {{ encore_entry_script_tags('js/app') }}
 
+    {{ encore_entry_script_tags('js/style_tags.js') }}
     </body>
 
 </html>

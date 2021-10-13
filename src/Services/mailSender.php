@@ -6,7 +6,7 @@ namespace App\Services;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 
-class mailSender
+final class mailSender
 {
     private $logger;
     private $mailer;

@@ -1,0 +1,21 @@
+<div id="tag-content">
+    <ul class="tag-list">
+
+        {% for tag in tags %}
+            <li class="tag-item-search d-flex justify-content-center">
+                <a href="{{ path('show_list', { 'tag': tag.name }) }}">
+                    {{ tag.name }}
+                </a>
+            </li>
+        {% endfor %}
+        <!--
+        <li class="tag-item d-flex justify-content-center"
+            v-for="(tag, index) in tags"  v-bind:id="index"
+            v-bind:style="{'border-color': changeTagColor(index)}"
+            v-on:mouseover="applyStyleOnHover(index)"
+            v-on:mouseleave="removeStyleOnLeave(index)"
+            v-on:click="searchPostsByTag(tag.name)"> tag.name
+        </li>
+        -->
+    </ul>
+</div>
