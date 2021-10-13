@@ -9,7 +9,7 @@ use Twig\Environment;
 /**
  * Class DefaultController
  */
-class IndexController
+final class IndexController
 {
     /**
      * @param Environment $twig

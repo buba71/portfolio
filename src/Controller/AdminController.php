@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-class AdminController
+final class AdminController
 {
     /**
      * @param Environment $twig

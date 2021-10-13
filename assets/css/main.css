@@ -324,6 +324,10 @@ section h2 {
     background-color: transparent;
 }
 
+.breadcrumb {
+    padding: 0;
+}
+
 .navControl {
     margin-top: 100px;
     margin-bottom: 150px;
@@ -346,7 +350,12 @@ section h2 {
     list-style: none;
 }
 
-.tag-item {
+.tag-item-search  a {
+    color: inherit;
+    cursor: pointer;
+}
+
+.tag-item, .tag-item-search {
     font-size: small;
     color: #000;
     min-width: 60px;
@@ -355,7 +364,6 @@ section h2 {
     padding-left: 5px;
     padding-right: 5px;
     border: 1px solid;
-    cursor:pointer;
 }
 
 #tag-content {

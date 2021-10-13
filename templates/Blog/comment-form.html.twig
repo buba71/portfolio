@@ -1,0 +1,24 @@
+{{ form_start(form, { 'attr': { 'id': 'comment-form'}}) }}
+
+    <div class=" form-group">
+        {{ form_errors(form.author) }}
+        {{ form_widget(form.author, { 'attr': { 'class': 'form-control', 'placeholder': 'Pseudonyme'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_errors(form.content) }}
+        {{ form_widget(form.content,
+            { 'attr':
+                {
+                    'class': 'form-control',
+                    'placeholder': 'Votre commentaire ',
+                    'rows': 6
+                }
+            }
+          )
+        }}
+    </div>
+    <button type="submit" class="btn btn-default btn-sm ml-0">Commenter</button>
+
+
+{{ form_end(form) }}
+

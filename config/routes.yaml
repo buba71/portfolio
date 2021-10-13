@@ -2,11 +2,11 @@ index:
     path: /
     controller: App\Controller\IndexController::index
 
-posts:
+show_list:
     path: /posts
     controller: App\Controller\PostController::showAll
 
-show_post:
+show_details:
     path: /post/{slug}
     controller: App\Controller\PostController::showDetails
 

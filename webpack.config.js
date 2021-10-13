@@ -12,8 +12,10 @@ Encore
     .addEntry('js/app', './assets/js/app.js')
     .addEntry('js/admin', './assets/js/admin.js')
     .addEntry('js/blog', './assets/js/blog.js')
+    .addEntry('js/style_tags.js', './assets/js/style_tags.js')
     .addEntry('css/main', './assets/css/main.css')
     .addEntry('css/icons','./assets/css/icons.css')
+
 
     // Enable Vue loader.
     .enableVueLoader()
