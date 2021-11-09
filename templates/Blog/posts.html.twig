@@ -1,149 +1,75 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <title>Blog david-de-lima.com - Entrepreneur - Développeur web Freelance php Symfony Vue.js|Nuxt.js en Bourgogne ou en télétravail</title>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content="Développeur web Freelance PHP et JAVASCRIPT en Bourgogne. Spécialisé sur les frameworks SYMFONY, VUE et NUXT. Je met mes compétences à votre service pour la réalisation de vos projets web."/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Roboto+Mono:300|Open+Sans+Condensed:300i&display=swap"/>
-        <link rel="stylesheet" href="{{ asset('ckeditor/plugins/codesnippet/lib/highlight/styles/docco.css') }}"/>
-        <link rel="canonical" href="https://david-de-lima.com/posts"/>
-        {{ encore_entry_link_tags('js/app') }}
-        {{ encore_entry_link_tags('css/main') }}
-        {{ encore_entry_link_tags('css/icons') }}
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78369194-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-78369194-2');
-        </script>
-    </head>
-    <body>
-        <!-- With vueJS
+{% extends 'base.html.twig' %}
 
-        <div id="app">
+            {% block header %}
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+                    <a class="navbar-brand" href="#" id="logo">david-de-lima.com</a>
+                    <!-- Socials links  #A modifier # -->
+                    <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
+                        <i class="fab fa-linkedin fa-2x white-text ml-5 mr-2"></i>
+                    </a>
+                    <a href="https://github.com/buba71" data-toggle="tooltip" title="Profil Github">
+                        <i class="fab fa-github-square fa-2x white-text"></i>
+                    </a>
+                 <!-- Socials links -->
+                </nav>
+            </header>
+            {% endblock %}
 
-        -->
-
-            <div id="app-wrapper">
-                <header>
-                    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-                        <a class="navbar-brand" href="#" id="logo">david-de-lima.com</a>
-                        <!-- Socials links  #A modifier # -->
-                        <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
-                            <i class="fab fa-linkedin fa-2x white-text ml-5 mr-2"></i>
+            {% block content %}
+                <div class="container">
+                    <!-- Navigation -->
+                    <div class="navControl d-flex align-content-center ">
+                        <i class="fas fa-chevron-left fa-2x"></i>
+                        <a href="{{ path('index') }}">
+                            <span>portfolio</span>
                         </a>
-                        <a href="https://github.com/buba71" data-toggle="tooltip" title="Profil Github">
-                            <i class="fab fa-github-square fa-2x white-text"></i>
-                        </a>
-
-                        <!-- Socials links -->
-                    </nav>
-                </header>
-                <main>
-                    <div class="container">
-                        <!-- Navigation -->
-                        <div class="navControl d-flex align-content-center ">
-                            <i class="fas fa-chevron-left fa-2x"></i>
-                            <a href="{{ path('index') }}">
-                                <span>portfolio</span>
-                            </a>
+                    </div>
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
                         </div>
+                    {% endfor %}
 
-                        {% for message in app.flashes('success') %}
-                            <div class="alert alert-success">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-
-
-                        {% block content %}
-                        <!-- Vue.js component  <router-view></router-view> -->
-                        {% if app.request.get('tag') %}
-                            {% include('Blog/breadcrumb.html.twig')%}
-                        {% endif %}
+                    {% if app.request.get('tag') %}
+                        {% include('Blog/breadcrumb.html.twig')%}
+                    {% endif %}
 
                         <h1 id="blog-title" class="d-flex justify-content-center"style="color: #8c8c8c; margin-bottom: 50px">Blog david-de-lima.com</h1>
 
-                        {% include('Blog/tag-search.html.twig')%}
+                    {% include('Blog/tag-search.html.twig')%}
 
-                        {% if posts is defined %}
-                            {% for post in posts %}
-
-                            <!-- Post card -->
-                            <article class="card post-item" >
-                                <div class="title-box">
-                                    <h2>{{ post.title }}</h2>
-
-                                    <ul class="tag-list" >
-                                        {% for tag in post.tags %}
-                                            <li class="tag-item d-flex justify-content-center" > {{ tag.name }} </li>
-                                        {% endfor  %}
-                                    </ul>
+                    {% if posts is defined %}
+                        {% for post in posts %}
+                     <!-- Post card -->
+                        <article class="card post-item" >
+                            <div class="title-box">
+                                <h2>{{ post.title }}</h2>
+                                <ul class="tag-list" >
+                                    {% for tag in post.tags %}
+                                        <li class="tag-item d-flex justify-content-center" > {{ tag.name }} </li>
+                                    {% endfor  %}
+                                </ul>
+                            </div>
+                            <div class="postInfo">
+                                <i class="far fa-calendar-alt"></i> {{ post.postDate| date }}
+                                <i class="far fa-comment-alt"></i> {{ post.comments|length }}
+                            </div>
+                            <div class="postContent">
+                             {{ (post.content | slice(0, 200)~'...')|raw  }}
+                                <div class="fullPost">
+                                    <a href="{{ path('show_details', {'slug':post.slug}) }}">
+                                        <i class="fas fa-angle-double-right"></i><span> Lire la suite</span>
+                                    </a>
                                 </div>
-                                <div class="postInfo">
-                                    <i class="far fa-calendar-alt"></i> {{ post.postDate| date }}
-                                    <i class="far fa-comment-alt"></i> {{ post.comments|length }}
-                                </div>
-
-                                <div class="postContent">
-
-                                    {{ (post.content | slice(0, 200)~'...')|raw  }}
-                                    <div class="fullPost">
-                                        <a href="{{ path('show_details', {'slug':post.slug}) }}">
-                                            <i class="fas fa-angle-double-right"></i><span> Lire la suite</span>
-                                        </a>
-                                    </div>
-
-                                </div>
+                             </div>
+                        </article>
+                        <!-- Post card -->
+                        {% endfor %}
+                    {% else %}
+                     <div v-else class="mb-4">Il n'y a pas d'article pour le moment.</div>
+                    {% endif %}
+                </div>
+            {% endblock %}
 
 
-                            </article>
-                            <!-- Post card -->
-                            {% endfor %}
-
-                        {% else %}
-
-                            <div v-else class="mb-4">Il n'y a pas d'article pour le moment.</div>
-
-                        {% endif %}
-
-                        {% endblock %}
-
-                    </div>
-                </main>
-
-                <!-- Footer -->
-                <footer class="page-footer text-center pt-3">
-
-                    <p>
-                        <a href="https://www.linkedin.com/in/david-de-lima-468469131/" data-toggle="tooltip" title="Profil Linkedin">
-                            <i class="fab fa-linkedin fa-2x white-text mr-2"></i>
-                        </a>
-                        <a href="https://github.com/buba71" data-toggle="tooltip" title="Profil Github">
-                            <i class="fab fa-github-square fa-2x white-text"></i>
-                        </a>
-                    </p>
-
-                    <!-- Copyright -->
-                    <div class="footer-copyright text-center py-3 flex j">© 2018 Copyright:
-                        <span> David De Lima - Développeur Web Freelance - N°SIRET: 849 515 564 00011</span>
-                    </div>
-                    <!-- Copyright -->
-
-
-                </footer>
-                <!-- Footer -->
-            </div>
-
-        <!-- </div> -->
-<!-- Scripts -->
-
-    {{ encore_entry_script_tags('js/style_tags.js') }}
-    </body>
-
-</html>
