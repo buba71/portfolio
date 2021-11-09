@@ -1,26 +1,41 @@
 {% extends 'Blog/posts.html.twig' %}
 
 {% block content %}
-
-    {% if post.title is defined %}
-        {% include('Blog/breadcrumb.html.twig') %}
-    {% endif %}
-
-    <h1 id="blog-title" class="d-flex justify-content-center"style="color: #8c8c8c; margin-bottom: 50px">Blog david-de-lima.com</h1>
-
-    <article>
-        <div class="postContent">
-            <h2 class="post-title">{{ post.title }}</h2>
-            <p>{{ post.content|raw }}</p>
+    <div class="container">
+    <!-- Navigation -->
+        <div class="navControl d-flex align-content-center ">
+            <i class="fas fa-chevron-left fa-2x"></i>
+            <a href="{{ path('index') }}">
+                <span>portfolio</span>
+            </a>
         </div>
-    </article>
+    <!-- Navigation -->
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
 
-    <div class="mt-5">
-        <span><strong>Laisser un commentaire:</strong></span>
-        <hr class="mt-1">
+        {% if post.title is defined %}
+            {% include('Blog/breadcrumb.html.twig') %}
+        {% endif %}
+
+        <h1 id="blog-title" class="d-flex justify-content-center" style="color: #8c8c8c; margin-bottom: 50px">Blog david-de-lima.com</h1>
+
+        <article>
+            <div class="postContent">
+                <h2 class="post-title">{{ post.title }}</h2>
+                <p>{{ post.content|raw }}</p>
+            </div>
+        </article>
+
+        <div class="mt-5">
+            <span><strong>Laisser un commentaire:</strong></span>
+            <hr class="mt-1">
+        </div>
+
+        {% include 'Blog/comment-form.html.twig' %}
+
+        {% include 'Blog/comments.html.twig' %}
     </div>
-
-    {% include 'Blog/comment-form.html.twig' %}
-
-    {% include 'Blog/comments.html.twig' %}
 {% endblock %}

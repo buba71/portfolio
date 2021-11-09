@@ -44,7 +44,9 @@ final class PostController
     }
 
     /**
-     * @param Environment $twig
+     * @param PostSearchFilter $searchFilter
+     * @param Request $request
+     * @param SessionInterface $session
      * @return Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
@@ -55,8 +57,9 @@ final class PostController
         Request $request,
         SessionInterface $session
     ): Response {
+        
         if ($request->get('tag')) {
-            // set session with selected tag for building breadcrumb navigation
+            // set session with selected tag for building breadcrumb navigation.
             $session->set('tag', $request->get('tag'));
 
             $posts = $searchFilter->search($request->get('tag'));
@@ -77,8 +80,11 @@ final class PostController
     }
 
     /**
-     * @param string $slug
+     * @param FlashBagInterface $flashBag
      * @param FormFactoryInterface $formFactory
+     * @param Request $request
+     * @param string $slug
+     * @param RouterInterface $router
      * @return Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
@@ -91,6 +97,7 @@ final class PostController
         string $slug,
         RouterInterface $router
     ): Response {
+
         $post = $this->entityManager->getRepository(Post::class)->findOneBy(['slug' => $slug]);
 
         $comment = new Comment();

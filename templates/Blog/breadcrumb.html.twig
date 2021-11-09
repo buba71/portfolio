@@ -8,21 +8,15 @@
             </li>
 
             {% if app.session.get('tag') %}
-
-            <li {% if post.title is not defined %}
-                class="breadcrumb-item active"
-                {% else %} class="breadcrumb-item"
-                {% endif %}
-            >
-                {{ app.session.get('tag') }}
-            </li>
+                <li {% if post.title is not defined %} class="breadcrumb-item active" {% else %} class="breadcrumb-item" {% endif %}>
+                    {{ app.session.get('tag') }}
+                </li>
             {% endif %}
 
             {% if post.title is defined %}
-
-            <li class="breadcrumb-item active" >
-                {{ post.title }}
-            </li>
+                <li class="breadcrumb-item active" >
+                    {{ post.title }}
+                </li>
             {% endif %}
 
         {% endif %}

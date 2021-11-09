@@ -1,4 +1,4 @@
-    <!-- Fil des commentaires -->
+    <!-- Fil des commentaries -->
 
     <div id="comments-thread" class="mt-5">
         {% for comment in post.comments %}
@@ -10,7 +10,7 @@
             </div>
             <div class="comment-content">
 
-                <p>{{ comment.content }}</p>
+                <p>{{ comment.content|raw }}</p>
 
             </div>
         </div>
@@ -18,5 +18,5 @@
         {% endfor %}
     </div>
 
-    <!-- Fil des commentaires -->
+    <!-- Fil des commentaries -->
 
